@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Note from "./Note";
-import Navbar from './Navbar';
+import Header from '../components/Navbar';
 
 class Home extends Component {
 
@@ -48,7 +48,8 @@ class Home extends Component {
 
     return (
       <div className="container">
-          <Navbar/>
+         
+          <Header/>
         
         {notes}
         <div className="button" onClick={this.addNote.bind(this)} style ={{fontStyle:"oblique",marginBottom:"10px" ,backgroundColor:"#ffb3b3"}}>Add note</div>
