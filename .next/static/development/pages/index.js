@@ -339,7 +339,7 @@ var Header = /*#__PURE__*/function (_Component) {
           columnNumber: 21
         }
       }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Label"], {
-        htmlFor: "Firstname",
+        htmlFor: "firstname",
         __self: this,
         __source: {
           fileName: _jsxFileName,

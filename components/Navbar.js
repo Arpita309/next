@@ -106,7 +106,7 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
                 <ModalBody>
                     <Form onSubmit={this.handleSignUp}>
                     <FormGroup>
-                                <Label htmlFor="Firstname">Firstname</Label>
+                                <Label htmlFor="firstname">Firstname</Label>
                                 <Input type="text" id="firstname" name="firstname"
                                     innerRef={(input) => this.firstname = input} />
                             </FormGroup>
