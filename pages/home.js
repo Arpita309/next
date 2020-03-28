@@ -47,18 +47,20 @@ class Home extends Component {
     })
 
     return (
-      <div className="container">
+      <div>
          
           <Header/>
         
         {notes}
-        <div className="button" onClick={this.addNote.bind(this)} style ={{fontStyle:"oblique",marginBottom:"10px" ,backgroundColor:"#ffb3b3"}}>Add note</div>
-        <input  placeholder="Enter Notes" type="text" className="input"
+        <div className="container">
+        <div className="button " onClick={this.addNote.bind(this)} style ={{fontStyle:"oblique",marginBottom:"10px",marginTop:"80px", color:"#E54E65"}}>Add note</div>
+        <input  style={{backgroundColor:"#E2CEEE"}} placeholder="Enter Notes" type="text" className="input "
         ref={((input) => {this.textInput = input})}
         value={this.state.noteText}
         onChange={noteText => this.updateNoteText(noteText)}
         onKeyPress={this.handleKeyPress.bind(this)}
         />
+        </div>
       </div>
     );
   }

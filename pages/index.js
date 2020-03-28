@@ -5,7 +5,8 @@ import { createGlobalStyle } from './global.style';
 
 const Index = () => (
   <Layout>
-      <Home/>
+     <Home/>
+     
   </Layout>
     
   )
