@@ -110,8 +110,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! reactstrap */ "reactstrap");
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(reactstrap__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
 var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\components\\Navbar.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
+
 
 
 
@@ -144,14 +146,18 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
 
   handleLogin(event) {
     this.toggleModal();
-    alert("Username: " + this.username.value + " Password: " + this.password.value + " Remember: " + this.remember.checked);
     event.preventDefault();
+    _firebase_fire__WEBPACK_IMPORTED_MODULE_4__["auth"].signInWithEmailAndPassword(this.username.value, this.password.value).then(Credential => {
+      console.log(Credential);
+    });
   }
 
   handleSignUp(event) {
     this.toggleSignup();
-    alert("Firstname: " + this.firstname.value + "Lastname: " + this.lastname.value + "Username: " + this.username.value + " Password: " + this.password.value);
     event.preventDefault();
+    _firebase_fire__WEBPACK_IMPORTED_MODULE_4__["auth"].createUserWithEmailAndPassword(this.username.value, this.password.value).then(Credential => {
+      console.log(Credential);
+    });
   }
 
   render() {
@@ -159,7 +165,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 56,
+        lineNumber: 63,
         columnNumber: 13
       }
     }, __jsx("nav", {
@@ -167,7 +173,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 57,
+        lineNumber: 64,
         columnNumber: 17
       }
     }, __jsx("div", {
@@ -175,7 +181,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 58,
+        lineNumber: 65,
         columnNumber: 21
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["NavbarBrand"], {
@@ -188,7 +194,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 60,
+        lineNumber: 67,
         columnNumber: 25
       }
     }, "Todo App"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Nav"], {
@@ -197,7 +203,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 64,
+        lineNumber: 71,
         columnNumber: 29
       }
     }, __jsx("div", {
@@ -207,7 +213,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 65,
+        lineNumber: 72,
         columnNumber: 29
       }
     }, __jsx("button", {
@@ -220,7 +226,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 66,
+        lineNumber: 73,
         columnNumber: 33
       }
     }, "Login"), __jsx("button", {
@@ -230,7 +236,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 67,
+        lineNumber: 74,
         columnNumber: 33
       }
     }, "Signup"))))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Modal"], {
@@ -239,7 +245,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 78,
+        lineNumber: 85,
         columnNumber: 17
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["ModalHeader"], {
@@ -247,14 +253,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 79,
+        lineNumber: 86,
         columnNumber: 17
       }
     }, "Login"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["ModalBody"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 80,
+        lineNumber: 87,
         columnNumber: 17
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Form"], {
@@ -262,14 +268,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 81,
+        lineNumber: 88,
         columnNumber: 21
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["FormGroup"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 82,
+        lineNumber: 89,
         columnNumber: 29
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Label"], {
@@ -277,7 +283,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 83,
+        lineNumber: 90,
         columnNumber: 33
       }
     }, "Username"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Input"], {
@@ -288,14 +294,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84,
+        lineNumber: 91,
         columnNumber: 33
       }
     })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["FormGroup"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 87,
+        lineNumber: 94,
         columnNumber: 29
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Label"], {
@@ -303,7 +309,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 88,
+        lineNumber: 95,
         columnNumber: 33
       }
     }, "Password"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Input"], {
@@ -314,7 +320,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 89,
+        lineNumber: 96,
         columnNumber: 33
       }
     })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["FormGroup"], {
@@ -322,7 +328,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 92,
+        lineNumber: 99,
         columnNumber: 29
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Label"], {
@@ -330,7 +336,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 93,
+        lineNumber: 100,
         columnNumber: 33
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Input"], {
@@ -340,7 +346,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 94,
+        lineNumber: 101,
         columnNumber: 37
       }
     }), "Remember me")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
@@ -350,7 +356,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 99,
+        lineNumber: 106,
         columnNumber: 29
       }
     }, "Login")))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Modal"], {
@@ -359,7 +365,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 104,
+        lineNumber: 111,
         columnNumber: 1
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["ModalHeader"], {
@@ -367,14 +373,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 105,
+        lineNumber: 112,
         columnNumber: 17
       }
     }, "SignUp"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["ModalBody"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 106,
+        lineNumber: 113,
         columnNumber: 17
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Form"], {
@@ -382,14 +388,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 107,
+        lineNumber: 114,
         columnNumber: 21
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["FormGroup"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 108,
+        lineNumber: 115,
         columnNumber: 21
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Label"], {
@@ -397,7 +403,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 109,
+        lineNumber: 116,
         columnNumber: 33
       }
     }, "Firstname"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Input"], {
@@ -408,14 +414,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 110,
+        lineNumber: 117,
         columnNumber: 33
       }
     })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["FormGroup"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 113,
+        lineNumber: 120,
         columnNumber: 29
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Label"], {
@@ -423,7 +429,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 114,
+        lineNumber: 121,
         columnNumber: 33
       }
     }, "Lastname"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Input"], {
@@ -434,14 +440,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 115,
+        lineNumber: 122,
         columnNumber: 33
       }
     })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["FormGroup"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 118,
+        lineNumber: 125,
         columnNumber: 29
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Label"], {
@@ -449,7 +455,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 119,
+        lineNumber: 126,
         columnNumber: 33
       }
     }, "Username"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Input"], {
@@ -460,14 +466,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 120,
+        lineNumber: 127,
         columnNumber: 33
       }
     })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["FormGroup"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 123,
+        lineNumber: 130,
         columnNumber: 29
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Label"], {
@@ -475,7 +481,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 124,
+        lineNumber: 131,
         columnNumber: 33
       }
     }, "Password"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Input"], {
@@ -486,7 +492,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 125,
+        lineNumber: 132,
         columnNumber: 33
       }
     })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
@@ -496,7 +502,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 129,
+        lineNumber: 136,
         columnNumber: 29
       }
     }, "SignUp")))));
@@ -575,6 +581,83 @@ const Layout = props => __jsx("div", {
 }, props.children));
 
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
+
+/***/ }),
+
+/***/ "./firebase/config.js":
+/*!****************************!*\
+  !*** ./firebase/config.js ***!
+  \****************************/
+/*! exports provided: Config */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Config", function() { return Config; });
+const Config = {
+  apiKey: "AIzaSyASlSjH3fL2GezWLueFMy-nhQ9vuJmJFDo",
+  authDomain: "next-todo-fc90e.firebaseapp.com",
+  databaseURL: "https://next-todo-fc90e.firebaseio.com",
+  projectId: "next-todo-fc90e",
+  storageBucket: "next-todo-fc90e.appspot.com",
+  messagingSenderId: "969855624340",
+  appId: "1:969855624340:web:c9a785664c2c238a3c8081",
+  measurementId: "G-SKL8Y4KQHR"
+};
+
+/***/ }),
+
+/***/ "./firebase/fire.js":
+/*!**************************!*\
+  !*** ./firebase/fire.js ***!
+  \**************************/
+/*! exports provided: auth, fireauth, firestore, firebasestore, database */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "auth", function() { return auth; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fireauth", function() { return fireauth; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "firestore", function() { return firestore; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "firebasestore", function() { return firebasestore; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "database", function() { return database; });
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./config */ "./firebase/config.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/app */ "firebase/app");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/auth */ "firebase/auth");
+/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(firebase_auth__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var firebase_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! firebase/storage */ "firebase/storage");
+/* harmony import */ var firebase_storage__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(firebase_storage__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var firebase_database__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! firebase/database */ "firebase/database");
+/* harmony import */ var firebase_database__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(firebase_database__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! firebase/firestore */ "firebase/firestore");
+/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(firebase_firestore__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var firebase_messaging__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! firebase/messaging */ "firebase/messaging");
+/* harmony import */ var firebase_messaging__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(firebase_messaging__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var firebase_functions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! firebase/functions */ "firebase/functions");
+/* harmony import */ var firebase_functions__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(firebase_functions__WEBPACK_IMPORTED_MODULE_7__);
+
+
+
+ // for storage
+
+ // for realtime database
+
+ // for cloud firestore
+
+ // for cloud messaging
+
+
+
+if (!firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.apps.length) {
+  firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.initializeApp(_config__WEBPACK_IMPORTED_MODULE_0__["Config"]);
+}
+
+const auth = firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.auth();
+const fireauth = firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.auth;
+const firestore = firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.firestore();
+const firebasestore = firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.firestore;
+const database = firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.database();
 
 /***/ }),
 
@@ -2522,6 +2605,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Note__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Note */ "./pages/Note.js");
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Navbar */ "./components/Navbar.js");
+/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
+/* harmony import */ var _main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./main */ "./pages/main.js");
 var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\Home.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -2530,6 +2615,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
+_firebase_fire__WEBPACK_IMPORTED_MODULE_3__["auth"].onAuthStateChanged(user => {
+  if (user) {
+    console.log('user logged in: ', user);
+    _firebase_fire__WEBPACK_IMPORTED_MODULE_3__["firestore"].collection('users').get().then(querySnapshot => {
+      const note = querySnapshot.docs.map(doc => doc.data());
+      console.log(note);
+
+      __jsx(_main__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        note: note.note,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12,
+          columnNumber: 9
+        }
+      });
+    });
+  } else {
+    console.log('user logged out');
+  }
+});
 
 class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   constructor(props) {
@@ -2579,39 +2687,26 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   render() {
-    let notes = this.state.notes.map((val, key) => {
-      return __jsx(_Note__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        key: key,
-        text: val,
-        deleteMethod: () => this.deleteNote(key),
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 44,
-          columnNumber: 14
-        }
-      });
-    });
     return __jsx("div", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50,
+        lineNumber: 62,
         columnNumber: 7
       }
     }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 52,
+        lineNumber: 64,
         columnNumber: 11
       }
-    }), notes, __jsx("div", {
+    }), __jsx("div", {
       className: "container",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 55,
+        lineNumber: 67,
         columnNumber: 9
       }
     }, __jsx("div", {
@@ -2626,7 +2721,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 56,
+        lineNumber: 68,
         columnNumber: 9
       }
     }, "Add note"), __jsx("input", {
@@ -2645,7 +2740,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 57,
+        lineNumber: 69,
         columnNumber: 9
       }
     })));
@@ -2803,6 +2898,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Note__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Note */ "./pages/Note.js");
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Navbar */ "./components/Navbar.js");
+/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
+/* harmony import */ var _main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./main */ "./pages/main.js");
 var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\home.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -2811,6 +2908,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
+_firebase_fire__WEBPACK_IMPORTED_MODULE_3__["auth"].onAuthStateChanged(user => {
+  if (user) {
+    console.log('user logged in: ', user);
+    _firebase_fire__WEBPACK_IMPORTED_MODULE_3__["firestore"].collection('users').get().then(querySnapshot => {
+      const note = querySnapshot.docs.map(doc => doc.data());
+      console.log(note);
+
+      __jsx(_main__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        note: note.note,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12,
+          columnNumber: 9
+        }
+      });
+    });
+  } else {
+    console.log('user logged out');
+  }
+});
 
 class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   constructor(props) {
@@ -2860,39 +2980,26 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   render() {
-    let notes = this.state.notes.map((val, key) => {
-      return __jsx(_Note__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        key: key,
-        text: val,
-        deleteMethod: () => this.deleteNote(key),
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 44,
-          columnNumber: 14
-        }
-      });
-    });
     return __jsx("div", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50,
+        lineNumber: 62,
         columnNumber: 7
       }
     }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 52,
+        lineNumber: 64,
         columnNumber: 11
       }
-    }), notes, __jsx("div", {
+    }), __jsx("div", {
       className: "container",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 55,
+        lineNumber: 67,
         columnNumber: 9
       }
     }, __jsx("div", {
@@ -2907,7 +3014,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 56,
+        lineNumber: 68,
         columnNumber: 9
       }
     }, "Add note"), __jsx("input", {
@@ -2926,7 +3033,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 57,
+        lineNumber: 69,
         columnNumber: 9
       }
     })));
@@ -2979,6 +3086,57 @@ const Index = () => __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_2__["defau
 
 /***/ }),
 
+/***/ "./pages/main.js":
+/*!***********************!*\
+  !*** ./pages/main.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Card; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactstrap */ "reactstrap");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(reactstrap__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\main.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+function Card(note) {
+  __jsx("div", {
+    className: "card border-success mb-3",
+    style: {
+      maxWidth: "20rem"
+    },
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 4,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "card-body",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 9
+    }
+  }, __jsx("h4", {
+    className: "card-text",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 1
+    }
+  }, this.props.note)), "/ ");
+}
+
+/***/ }),
+
 /***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
@@ -2988,6 +3146,83 @@ const Index = () => __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_2__["defau
 
 module.exports = __webpack_require__(/*! C:\Users\at\Desktop\todo-next\pages\index.js */"./pages/index.js");
 
+
+/***/ }),
+
+/***/ "firebase/app":
+/*!*******************************!*\
+  !*** external "firebase/app" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase/app");
+
+/***/ }),
+
+/***/ "firebase/auth":
+/*!********************************!*\
+  !*** external "firebase/auth" ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase/auth");
+
+/***/ }),
+
+/***/ "firebase/database":
+/*!************************************!*\
+  !*** external "firebase/database" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase/database");
+
+/***/ }),
+
+/***/ "firebase/firestore":
+/*!*************************************!*\
+  !*** external "firebase/firestore" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase/firestore");
+
+/***/ }),
+
+/***/ "firebase/functions":
+/*!*************************************!*\
+  !*** external "firebase/functions" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase/functions");
+
+/***/ }),
+
+/***/ "firebase/messaging":
+/*!*************************************!*\
+  !*** external "firebase/messaging" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase/messaging");
+
+/***/ }),
+
+/***/ "firebase/storage":
+/*!***********************************!*\
+  !*** external "firebase/storage" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase/storage");
 
 /***/ }),
 

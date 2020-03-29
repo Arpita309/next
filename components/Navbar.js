@@ -4,8 +4,13 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
   Button, Modal, ModalHeader, ModalBody,
   Form, FormGroup, Input, Label,NavLink } from 'reactstrap';
+  import{auth,database, firestore}from '../firebase/fire';
   
+  
+    
 
+  
+  
   class Header extends Component {
     constructor(props) {
         super(props);
@@ -35,16 +40,18 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
       }
       handleLogin(event) {
         this.toggleModal();
-        alert("Username: " + this.username.value + " Password: " + this.password.value
-            + " Remember: " + this.remember.checked);
         event.preventDefault();
+        auth.signInWithEmailAndPassword(this.username.value, this.password.value).then(Credential=>{console.log(Credential)})
+        }
 
-    }
      handleSignUp(event) {
       this.toggleSignup();
-      alert("Firstname: "+this.firstname.value+"Lastname: "+this.lastname.value+"Username: " + this.username.value + " Password: " + this.password.value
-         );
       event.preventDefault();
+      auth.createUserWithEmailAndPassword(this.username.value,this.password.value).then (Credential=>{console.log(Credential)});
+     
+     
+      
+     
 
   }
 

@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
 import Note from "./Note";
 import Header from '../components/Navbar';
-
+import {firestore,auth} from '../firebase/fire';
+import Card from'./main'
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      console.log('user logged in: ', user);
+      firestore.collection('users').get().then(querySnapshot => {
+        const note = querySnapshot.docs.map(doc => doc.data());
+        console.log(note);
+        <Card note={note.note}/>
+        
+      });
+    } else {
+      console.log('user logged out');
+      
+    }
+  })
 class Home extends Component {
 
   constructor(props) {
@@ -22,6 +37,7 @@ class Home extends Component {
     noteArr.push(this.state.noteText);
     this.setState({ noteText: ''});
     this.textInput.focus();
+
   }
 
   handleKeyPress = (event) => {
@@ -40,18 +56,14 @@ class Home extends Component {
 
   render() {
 
-    let notes = this.state.notes.map((val, key) => {
-      return <Note key={key} text={val}
-      deleteMethod={ () => this.deleteNote(key) }
-       />
-    })
+    
 
     return (
       <div>
          
           <Header/>
         
-        {notes}
+        
         <div className="container">
         <div className="button " onClick={this.addNote.bind(this)} style ={{fontStyle:"oblique",marginBottom:"10px",marginTop:"80px", color:"#E54E65"}}>Add note</div>
         <input  style={{backgroundColor:"#E2CEEE"}} placeholder="Enter Notes" type="text" className="input "
