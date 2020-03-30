@@ -83,9 +83,7 @@ var Header = /*#__PURE__*/function (_Component) {
     value: function handleLogin(event) {
       this.toggleModal();
       event.preventDefault();
-      _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["auth"].signInWithEmailAndPassword(this.username.value, this.password.value).then(function (Credential) {
-        console.log(Credential);
-      });
+      _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["auth"].signInWithEmailAndPassword(this.username.value, this.password.value);
     }
   }, {
     key: "handleSignUp",
@@ -97,6 +95,14 @@ var Header = /*#__PURE__*/function (_Component) {
       });
     }
   }, {
+    key: "handleLogOut",
+    value: function handleLogOut(event) {
+      event.preventDefault();
+      _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["auth"].signOut().then(function () {
+        console.log('user signed out');
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -105,7 +111,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63,
+          lineNumber: 66,
           columnNumber: 13
         }
       }, __jsx("nav", {
@@ -113,7 +119,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64,
+          lineNumber: 67,
           columnNumber: 17
         }
       }, __jsx("div", {
@@ -121,7 +127,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65,
+          lineNumber: 68,
           columnNumber: 21
         }
       }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["NavbarBrand"], {
@@ -134,7 +140,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67,
+          lineNumber: 70,
           columnNumber: 25
         }
       }, "Todo App"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Nav"], {
@@ -143,7 +149,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71,
+          lineNumber: 74,
           columnNumber: 29
         }
       }, __jsx("div", {
@@ -153,7 +159,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72,
+          lineNumber: 75,
           columnNumber: 29
         }
       }, __jsx("button", {
@@ -166,7 +172,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73,
+          lineNumber: 76,
           columnNumber: 33
         }
       }, "Login"), __jsx("button", {
@@ -176,16 +182,26 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74,
+          lineNumber: 77,
           columnNumber: 33
         }
-      }, "Signup"))))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Modal"], {
+      }, "Signup"), __jsx("button", {
+        type: "button",
+        onClick: this.handleLogOut,
+        className: "btn btn-danger",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 78,
+          columnNumber: 33
+        }
+      }, "Logout"))))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Modal"], {
         isOpen: this.state.isModalOpen,
         toggle: this.toggleModal,
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 85,
+          lineNumber: 89,
           columnNumber: 17
         }
       }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["ModalHeader"], {
@@ -193,14 +209,14 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 86,
+          lineNumber: 90,
           columnNumber: 17
         }
       }, "Login"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["ModalBody"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 87,
+          lineNumber: 91,
           columnNumber: 17
         }
       }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Form"], {
@@ -208,14 +224,14 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 88,
+          lineNumber: 92,
           columnNumber: 21
         }
       }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["FormGroup"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 89,
+          lineNumber: 93,
           columnNumber: 29
         }
       }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Label"], {
@@ -223,7 +239,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 90,
+          lineNumber: 94,
           columnNumber: 33
         }
       }, "Username"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Input"], {
@@ -236,14 +252,14 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 91,
+          lineNumber: 95,
           columnNumber: 33
         }
       })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["FormGroup"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 94,
+          lineNumber: 98,
           columnNumber: 29
         }
       }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Label"], {
@@ -251,7 +267,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95,
+          lineNumber: 99,
           columnNumber: 33
         }
       }, "Password"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Input"], {
@@ -264,7 +280,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 96,
+          lineNumber: 100,
           columnNumber: 33
         }
       })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["FormGroup"], {
@@ -272,7 +288,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 99,
+          lineNumber: 103,
           columnNumber: 29
         }
       }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Label"], {
@@ -280,7 +296,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 100,
+          lineNumber: 104,
           columnNumber: 33
         }
       }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Input"], {
@@ -292,7 +308,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 101,
+          lineNumber: 105,
           columnNumber: 37
         }
       }), "Remember me")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Button"], {
@@ -302,7 +318,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 106,
+          lineNumber: 110,
           columnNumber: 29
         }
       }, "Login")))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Modal"], {
@@ -311,7 +327,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 111,
+          lineNumber: 115,
           columnNumber: 1
         }
       }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["ModalHeader"], {
@@ -319,14 +335,14 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 112,
+          lineNumber: 116,
           columnNumber: 17
         }
       }, "SignUp"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["ModalBody"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 113,
+          lineNumber: 117,
           columnNumber: 17
         }
       }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Form"], {
@@ -334,70 +350,14 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114,
+          lineNumber: 118,
           columnNumber: 21
         }
       }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["FormGroup"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 115,
-          columnNumber: 21
-        }
-      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Label"], {
-        htmlFor: "firstname",
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 116,
-          columnNumber: 33
-        }
-      }, "Firstname"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Input"], {
-        type: "text",
-        id: "firstname",
-        name: "firstname",
-        innerRef: function innerRef(input) {
-          return _this2.firstname = input;
-        },
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 117,
-          columnNumber: 33
-        }
-      })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["FormGroup"], {
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 120,
-          columnNumber: 29
-        }
-      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Label"], {
-        htmlFor: "lastname",
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 121,
-          columnNumber: 33
-        }
-      }, "Lastname"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Input"], {
-        type: "text",
-        id: "lastname",
-        name: "lastname",
-        innerRef: function innerRef(input) {
-          return _this2.lastname = input;
-        },
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 122,
-          columnNumber: 33
-        }
-      })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["FormGroup"], {
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 125,
           columnNumber: 29
         }
       }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Label"], {
@@ -405,7 +365,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 126,
+          lineNumber: 122,
           columnNumber: 33
         }
       }, "Username"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Input"], {
@@ -418,14 +378,14 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 127,
+          lineNumber: 123,
           columnNumber: 33
         }
       })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["FormGroup"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 130,
+          lineNumber: 126,
           columnNumber: 29
         }
       }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Label"], {
@@ -433,7 +393,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 131,
+          lineNumber: 127,
           columnNumber: 33
         }
       }, "Password"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Input"], {
@@ -446,7 +406,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 132,
+          lineNumber: 128,
           columnNumber: 33
         }
       })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Button"], {
@@ -456,7 +416,7 @@ var Header = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 136,
+          lineNumber: 132,
           columnNumber: 29
         }
       }, "SignUp")))));
@@ -66393,7 +66353,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Note__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Note */ "./pages/Note.js");
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Navbar */ "./components/Navbar.js");
 /* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
-/* harmony import */ var _main__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./main */ "./pages/main.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var _main__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./main */ "./pages/main.js");
 
 
 
@@ -66401,10 +66362,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-var _this = undefined,
-    _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\Home.js";
-
+var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\Home.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
 
 function _createSuper(Derived) { return function () { var Super = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return Object(_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
@@ -66416,29 +66374,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
-_firebase_fire__WEBPACK_IMPORTED_MODULE_10__["auth"].onAuthStateChanged(function (user) {
-  if (user) {
-    console.log('user logged in: ', user);
-    _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["firestore"].collection('users').get().then(function (querySnapshot) {
-      var note = querySnapshot.docs.map(function (doc) {
-        return doc.data();
-      });
-      console.log(note);
 
-      __jsx(_main__WEBPACK_IMPORTED_MODULE_11__["default"], {
-        note: note.note,
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 12,
-          columnNumber: 9
-        }
-      });
-    });
-  } else {
-    console.log('user logged out');
-  }
-});
 
 var Home = /*#__PURE__*/function (_Component) {
   Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(Home, _Component);
@@ -66446,50 +66382,67 @@ var Home = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(Home);
 
   function Home(props) {
-    var _this2;
+    var _this;
 
     Object(_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Home);
 
-    _this2 = _super.call(this, props);
+    _this = _super.call(this, props);
 
-    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this2), "handleKeyPress", function (event) {
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "handleKeyPress", function (event) {
       if (event.key === "Enter") {
-        var noteArr = _this2.state.notes;
-        noteArr.push(_this2.state.noteText);
-
-        _this2.setState({
-          noteText: ''
+        // let noteArr = this.state.notes;
+        // noteArr.push(this.state.noteText);
+        //  this.setState({ noteText: ''});
+        _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["firestore"].collection('todos').add({
+          todo: _this.state.noteText
         });
       }
     });
 
-    _this2.state = {
+    _this.state = {
       noteText: '',
       notes: []
-    };
-    return _this2;
+    }; // this.Card=this.Card.bind(this);
+
+    return _this;
   }
 
   Object(_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Home, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["auth"].onAuthStateChanged(function (user) {
+        if (user) {
+          console.log('user logged in: ', user);
+          _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["firestore"].collection('todos').get().then(function (querySnapshot) {
+            querySnapshot.docs.forEach(function (doc) {
+              var data = doc.data().todo; //<Note data={data}/>;
+
+              console.log(data);
+
+              _this2.setState({
+                notes: doc.data()
+              }); //const data=doc.data();
+              // console.log(data);
+
+            });
+          });
+        } else {
+          console.log('user logged out');
+        }
+      });
+    } // Card({data}){
+    // <div>
+    // {data}
+    // </div>
+
+  }, {
     key: "updateNoteText",
     value: function updateNoteText(noteText) {
       this.setState({
         noteText: noteText.target.value
       });
-    }
-  }, {
-    key: "addNote",
-    value: function addNote() {
-      if (this.state.noteText === '') {
-        return;
-      }
-
-      var noteArr = this.state.notes;
-      noteArr.push(this.state.noteText);
-      this.setState({
-        noteText: ''
-      });
-      this.textInput.focus();
     }
   }, {
     key: "deleteNote",
@@ -66509,27 +66462,37 @@ var Home = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62,
+          lineNumber: 82,
           columnNumber: 7
         }
       }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_9__["default"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64,
+          lineNumber: 84,
           columnNumber: 11
+        }
+      }), __jsx(_main__WEBPACK_IMPORTED_MODULE_12__["default"], {
+        notes: this.state.notes.todo,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 85,
+          columnNumber: 12
         }
       }), __jsx("div", {
         className: "container",
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67,
+          lineNumber: 87,
           columnNumber: 9
         }
       }, __jsx("div", {
         className: "button ",
-        onClick: this.addNote.bind(this),
+        onClick: function onClick(noteText) {
+          return _this3.updateNoteText(noteText);
+        },
         style: {
           fontStyle: "oblique",
           marginBottom: "10px",
@@ -66539,7 +66502,7 @@ var Home = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68,
+          lineNumber: 88,
           columnNumber: 9
         }
       }, "Add note"), __jsx("input", {
@@ -66560,7 +66523,7 @@ var Home = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69,
+          lineNumber: 89,
           columnNumber: 9
         }
       })));
@@ -66583,56 +66546,22 @@ var Home = /*#__PURE__*/function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-
-
-
-
-
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\Note.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
-
-function _createSuper(Derived) { return function () { var Super = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return Object(_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
-
-var Note = /*#__PURE__*/function (_Component) {
-  Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(Note, _Component);
-
-  var _super = _createSuper(Note);
-
-  function Note() {
-    Object(_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Note);
-
-    return _super.apply(this, arguments);
-  }
-
-  Object(_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Note, [{
-    key: "render",
-    value: function render() {
-      return __jsx("div", {
-        className: "note",
-        onClick: this.props.deleteMethod,
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 7,
-          columnNumber: 9
-        }
-      }, this.props.text);
+function Note(data) {
+  return __jsx("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 9
     }
-  }]);
-
-  return Note;
-}(react__WEBPACK_IMPORTED_MODULE_5__["Component"]);
+  }, data);
+}
 
 /* harmony default export */ __webpack_exports__["default"] = (Note);
 
@@ -66687,7 +66616,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Note__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Note */ "./pages/Note.js");
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Navbar */ "./components/Navbar.js");
 /* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
-/* harmony import */ var _main__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./main */ "./pages/main.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var _main__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./main */ "./pages/main.js");
 
 
 
@@ -66695,10 +66625,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-var _this = undefined,
-    _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\home.js";
-
+var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\home.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
 
 function _createSuper(Derived) { return function () { var Super = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return Object(_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
@@ -66710,29 +66637,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
-_firebase_fire__WEBPACK_IMPORTED_MODULE_10__["auth"].onAuthStateChanged(function (user) {
-  if (user) {
-    console.log('user logged in: ', user);
-    _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["firestore"].collection('users').get().then(function (querySnapshot) {
-      var note = querySnapshot.docs.map(function (doc) {
-        return doc.data();
-      });
-      console.log(note);
 
-      __jsx(_main__WEBPACK_IMPORTED_MODULE_11__["default"], {
-        note: note.note,
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 12,
-          columnNumber: 9
-        }
-      });
-    });
-  } else {
-    console.log('user logged out');
-  }
-});
 
 var Home = /*#__PURE__*/function (_Component) {
   Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(Home, _Component);
@@ -66740,50 +66645,67 @@ var Home = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(Home);
 
   function Home(props) {
-    var _this2;
+    var _this;
 
     Object(_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Home);
 
-    _this2 = _super.call(this, props);
+    _this = _super.call(this, props);
 
-    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this2), "handleKeyPress", function (event) {
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "handleKeyPress", function (event) {
       if (event.key === "Enter") {
-        var noteArr = _this2.state.notes;
-        noteArr.push(_this2.state.noteText);
-
-        _this2.setState({
-          noteText: ''
+        // let noteArr = this.state.notes;
+        // noteArr.push(this.state.noteText);
+        //  this.setState({ noteText: ''});
+        _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["firestore"].collection('todos').add({
+          todo: _this.state.noteText
         });
       }
     });
 
-    _this2.state = {
+    _this.state = {
       noteText: '',
       notes: []
-    };
-    return _this2;
+    }; // this.Card=this.Card.bind(this);
+
+    return _this;
   }
 
   Object(_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Home, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["auth"].onAuthStateChanged(function (user) {
+        if (user) {
+          console.log('user logged in: ', user);
+          _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["firestore"].collection('todos').get().then(function (querySnapshot) {
+            querySnapshot.docs.forEach(function (doc) {
+              var data = doc.data().todo; //<Note data={data}/>;
+
+              console.log(data);
+
+              _this2.setState({
+                notes: doc.data()
+              }); //const data=doc.data();
+              // console.log(data);
+
+            });
+          });
+        } else {
+          console.log('user logged out');
+        }
+      });
+    } // Card({data}){
+    // <div>
+    // {data}
+    // </div>
+
+  }, {
     key: "updateNoteText",
     value: function updateNoteText(noteText) {
       this.setState({
         noteText: noteText.target.value
       });
-    }
-  }, {
-    key: "addNote",
-    value: function addNote() {
-      if (this.state.noteText === '') {
-        return;
-      }
-
-      var noteArr = this.state.notes;
-      noteArr.push(this.state.noteText);
-      this.setState({
-        noteText: ''
-      });
-      this.textInput.focus();
     }
   }, {
     key: "deleteNote",
@@ -66803,27 +66725,37 @@ var Home = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62,
+          lineNumber: 82,
           columnNumber: 7
         }
       }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_9__["default"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64,
+          lineNumber: 84,
           columnNumber: 11
+        }
+      }), __jsx(_main__WEBPACK_IMPORTED_MODULE_12__["default"], {
+        notes: this.state.notes.todo,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 85,
+          columnNumber: 12
         }
       }), __jsx("div", {
         className: "container",
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67,
+          lineNumber: 87,
           columnNumber: 9
         }
       }, __jsx("div", {
         className: "button ",
-        onClick: this.addNote.bind(this),
+        onClick: function onClick(noteText) {
+          return _this3.updateNoteText(noteText);
+        },
         style: {
           fontStyle: "oblique",
           marginBottom: "10px",
@@ -66833,7 +66765,7 @@ var Home = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68,
+          lineNumber: 88,
           columnNumber: 9
         }
       }, "Add note"), __jsx("input", {
@@ -66854,7 +66786,7 @@ var Home = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69,
+          lineNumber: 89,
           columnNumber: 9
         }
       })));
@@ -66922,44 +66854,80 @@ var Index = function Index() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Card; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+
+
+
+
+
 var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\main.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
+
+function _createSuper(Derived) { return function () { var Super = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return Object(_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 
-function Card(note) {
-  __jsx("div", {
-    className: "card border-success mb-3",
-    style: {
-      maxWidth: "20rem"
-    },
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 4,
-      columnNumber: 5
+
+
+var Card = /*#__PURE__*/function (_Component) {
+  Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(Card, _Component);
+
+  var _super = _createSuper(Card);
+
+  function Card() {
+    Object(_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Card);
+
+    return _super.apply(this, arguments);
+  }
+
+  Object(_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Card, [{
+    key: "render",
+    value: function render() {
+      return __jsx("div", {
+        className: "card text-primary mb-3 mt-4 ml-3",
+        style: {
+          maxWidth: "50rem",
+          fontSize: "2 px",
+          backgroundColor: "#CE9FA1"
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 7,
+          columnNumber: 25
+        }
+      }, __jsx("div", {
+        className: "card-body",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 9,
+          columnNumber: 25
+        }
+      }, __jsx("p", {
+        className: "card-text ",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 11,
+          columnNumber: 17
+        }
+      }, this.props.notes)));
     }
-  }, __jsx("div", {
-    className: "card-body",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 6,
-      columnNumber: 9
-    }
-  }, __jsx("h4", {
-    className: "card-text",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 7,
-      columnNumber: 1
-    }
-  }, this.props.note)), "/ ");
-}
+  }]);
+
+  return Card;
+}(react__WEBPACK_IMPORTED_MODULE_5__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Card);
 
 /***/ }),
 

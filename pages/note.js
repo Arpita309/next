@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Note extends Component {
-
-  render() {
+function Note(data){
     return (
-        <div className="note" onClick={this.props.deleteMethod} >
-            {this.props.text}
+        <div  >
+            {data}
         </div>
 
     );
   }
-}
 
 export default Note;

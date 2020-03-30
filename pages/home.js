@@ -2,21 +2,10 @@ import React, { Component } from 'react';
 import Note from "./Note";
 import Header from '../components/Navbar';
 import {firestore,auth} from '../firebase/fire';
-import Card from'./main'
-  auth.onAuthStateChanged(user => {
-    if (user) {
-      console.log('user logged in: ', user);
-      firestore.collection('users').get().then(querySnapshot => {
-        const note = querySnapshot.docs.map(doc => doc.data());
-        console.log(note);
-        <Card note={note.note}/>
-        
-      });
-    } else {
-      console.log('user logged out');
-      
-    }
-  })
+import {CardBody,CardText} from 'reactstrap';
+import Card from './main';
+
+  
 class Home extends Component {
 
   constructor(props) {
@@ -24,27 +13,58 @@ class Home extends Component {
     this.state= {
       noteText: '',
       notes: [],
-    }
+    };
+   // this.Card=this.Card.bind(this);
   }
+ 
+    componentDidMount(){
+      auth.onAuthStateChanged(user => {
+        if (user) {
+          console.log('user logged in: ', user);
+          firestore.collection('todos').get().then(querySnapshot => {
+          querySnapshot.docs.forEach(doc=>{
+            const data=doc.data().todo;
+          //<Note data={data}/>;
+            console.log(data);
+           
+           this.setState({notes:doc.data()});
+           //const data=doc.data();
+          // console.log(data);
+           
+             })});
+        } else {
+          console.log('user logged out');
+          
+        }
+      })
+    }
+
+  // Card({data}){
+    // <div>
+    // {data}
+    // </div>
+        
+   
+   
+  
+ 
+
 
   updateNoteText(noteText){
     this.setState({noteText: noteText.target.value})
   }
   
-  addNote() {
-    if (this.state.noteText === '') {return}
-    let noteArr = this.state.notes;
-    noteArr.push(this.state.noteText);
-    this.setState({ noteText: ''});
-    this.textInput.focus();
-
-  }
+  
 
   handleKeyPress = (event) => {
     if(event.key === "Enter"){
-      let noteArr = this.state.notes;
-      noteArr.push(this.state.noteText);
-      this.setState({ noteText: ''});
+     // let noteArr = this.state.notes;
+     // noteArr.push(this.state.noteText);
+    //  this.setState({ noteText: ''});
+    firestore.collection('todos').add({
+      todo:this.state.noteText
+    })
+      
     }
   }
 
@@ -62,10 +82,10 @@ class Home extends Component {
       <div>
          
           <Header/>
-        
-        
+           <Card notes={this.state.notes.todo} />
+    
         <div className="container">
-        <div className="button " onClick={this.addNote.bind(this)} style ={{fontStyle:"oblique",marginBottom:"10px",marginTop:"80px", color:"#E54E65"}}>Add note</div>
+        <div className="button " onClick={noteText => this.updateNoteText(noteText)} style ={{fontStyle:"oblique",marginBottom:"10px",marginTop:"80px", color:"#E54E65"}}>Add note</div>
         <input  style={{backgroundColor:"#E2CEEE"}} placeholder="Enter Notes" type="text" className="input "
         ref={((input) => {this.textInput = input})}
         value={this.state.noteText}
@@ -77,5 +97,6 @@ class Home extends Component {
     );
   }
 }
+
 
 export default Home;

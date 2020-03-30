@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {CardBody,CardText} from 'reactstrap';
-export default function Card(note){
-    <div className="card border-success mb-3" style={{maxWidth: "20rem"}}>
-        
-        <div className="card-body">
-<h4 className="card-text">{this.props.note}</h4>
+class Card extends Component{
+        render (){
           
-        </div>
-/ </div>
+                return (
+                        <div className="card text-primary mb-3 mt-4 ml-3" style={{maxWidth: "50rem",fontSize:"2 px",backgroundColor:"#CE9FA1"}}>
+                       
+                        <div className="card-body">
+                         
+                <p className="card-text ">{this.props.notes}</p>
+                        </div>
+                      </div>
+                
+        
+                );
+        }
 }
+export default Card;
+
+    

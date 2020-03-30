@@ -41,19 +41,22 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
       handleLogin(event) {
         this.toggleModal();
         event.preventDefault();
-        auth.signInWithEmailAndPassword(this.username.value, this.password.value).then(Credential=>{console.log(Credential)})
+        auth.signInWithEmailAndPassword(this.username.value, this.password.value)
+       
         }
 
      handleSignUp(event) {
       this.toggleSignup();
       event.preventDefault();
       auth.createUserWithEmailAndPassword(this.username.value,this.password.value).then (Credential=>{console.log(Credential)});
-     
-     
-      
-     
-
-  }
+     }
+     handleLogOut(event){
+        event.preventDefault();
+        auth.signOut().then(() => {
+            console.log('user signed out');
+        })
+        
+     }
 
   
 
@@ -72,6 +75,7 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
                             <div className="btn-group mr-auto" role="group" aria-label="Basic example">
                                 <button type="button"  onClick={this.toggleModal} className="btn btn-warning" style={{paddingRight:"4px"}}>Login</button>
                                 <button type="button"  onClick={this.toggleSignup} className="btn btn-success" >Signup</button>
+                                <button type="button"  onClick={this.handleLogOut} className="btn btn-danger" >Logout</button>
                                 
                                 
                               </div>
@@ -112,16 +116,8 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
                 <ModalHeader toggle={this.toggleSignup}>SignUp</ModalHeader>              
                 <ModalBody>
                     <Form onSubmit={this.handleSignUp}>
-                    <FormGroup>
-                                <Label htmlFor="firstname">Firstname</Label>
-                                <Input type="text" id="firstname" name="firstname"
-                                    innerRef={(input) => this.firstname = input} />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="lastname">Lastname</Label>
-                                <Input type="text" id="lastname" name="lastname"
-                                    innerRef={(input) => this.lastname = input} />
-                            </FormGroup>
+                    
+                               
                             <FormGroup>
                                 <Label htmlFor="username">Username</Label>
                                 <Input type="text" id="username" name="username"
