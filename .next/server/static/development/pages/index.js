@@ -111,8 +111,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! reactstrap */ "reactstrap");
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(reactstrap__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
+/* harmony import */ var _pages_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/main */ "./pages/main.js");
 var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\components\\Navbar.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
+
 
 
 
@@ -153,6 +155,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
   handleSignUp(event) {
     this.toggleSignup();
     event.preventDefault();
+    console.log("username : " + this.username.value + "password : " + this.password.value);
     _firebase_fire__WEBPACK_IMPORTED_MODULE_4__["auth"].createUserWithEmailAndPassword(this.username.value, this.password.value).then(Credential => {
       console.log(Credential);
     });
@@ -163,6 +166,16 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     _firebase_fire__WEBPACK_IMPORTED_MODULE_4__["auth"].signOut().then(() => {
       console.log('user signed out');
     });
+
+    __jsx(_pages_main__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      notes: "",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 61,
+        columnNumber: 9
+      }
+    });
   }
 
   render() {
@@ -170,7 +183,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 66,
+        lineNumber: 70,
         columnNumber: 13
       }
     }, __jsx("nav", {
@@ -178,7 +191,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 67,
+        lineNumber: 71,
         columnNumber: 17
       }
     }, __jsx("div", {
@@ -186,7 +199,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 68,
+        lineNumber: 72,
         columnNumber: 21
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["NavbarBrand"], {
@@ -199,7 +212,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 70,
+        lineNumber: 74,
         columnNumber: 25
       }
     }, "Todo App"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Nav"], {
@@ -208,7 +221,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 74,
+        lineNumber: 78,
         columnNumber: 29
       }
     }, __jsx("div", {
@@ -218,7 +231,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 75,
+        lineNumber: 79,
         columnNumber: 29
       }
     }, __jsx("button", {
@@ -231,7 +244,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 76,
+        lineNumber: 80,
         columnNumber: 33
       }
     }, "Login"), __jsx("button", {
@@ -241,7 +254,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 77,
+        lineNumber: 81,
         columnNumber: 33
       }
     }, "Signup"), __jsx("button", {
@@ -251,7 +264,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 78,
+        lineNumber: 82,
         columnNumber: 33
       }
     }, "Logout"))))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Modal"], {
@@ -260,7 +273,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 89,
+        lineNumber: 93,
         columnNumber: 17
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["ModalHeader"], {
@@ -268,14 +281,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 90,
+        lineNumber: 94,
         columnNumber: 17
       }
     }, "Login"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["ModalBody"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 91,
+        lineNumber: 95,
         columnNumber: 17
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Form"], {
@@ -283,14 +296,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 92,
+        lineNumber: 96,
         columnNumber: 21
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["FormGroup"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 93,
+        lineNumber: 97,
         columnNumber: 29
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Label"], {
@@ -298,7 +311,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 94,
+        lineNumber: 98,
         columnNumber: 33
       }
     }, "Username"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Input"], {
@@ -309,14 +322,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 95,
+        lineNumber: 99,
         columnNumber: 33
       }
     })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["FormGroup"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 98,
+        lineNumber: 102,
         columnNumber: 29
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Label"], {
@@ -324,7 +337,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 99,
+        lineNumber: 103,
         columnNumber: 33
       }
     }, "Password"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Input"], {
@@ -335,7 +348,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 100,
+        lineNumber: 104,
         columnNumber: 33
       }
     })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["FormGroup"], {
@@ -343,7 +356,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 103,
+        lineNumber: 107,
         columnNumber: 29
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Label"], {
@@ -351,7 +364,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 104,
+        lineNumber: 108,
         columnNumber: 33
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Input"], {
@@ -361,7 +374,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 105,
+        lineNumber: 109,
         columnNumber: 37
       }
     }), "Remember me")), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
@@ -371,7 +384,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 110,
+        lineNumber: 114,
         columnNumber: 29
       }
     }, "Login")))), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Modal"], {
@@ -380,7 +393,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 115,
+        lineNumber: 119,
         columnNumber: 1
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["ModalHeader"], {
@@ -388,14 +401,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 116,
+        lineNumber: 120,
         columnNumber: 17
       }
     }, "SignUp"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["ModalBody"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 117,
+        lineNumber: 121,
         columnNumber: 17
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Form"], {
@@ -403,14 +416,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 118,
+        lineNumber: 122,
         columnNumber: 21
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["FormGroup"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 121,
+        lineNumber: 125,
         columnNumber: 29
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Label"], {
@@ -418,7 +431,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 122,
+        lineNumber: 126,
         columnNumber: 33
       }
     }, "Username"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Input"], {
@@ -429,14 +442,14 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 123,
+        lineNumber: 127,
         columnNumber: 33
       }
     })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["FormGroup"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 126,
+        lineNumber: 130,
         columnNumber: 29
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Label"], {
@@ -444,7 +457,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 127,
+        lineNumber: 131,
         columnNumber: 33
       }
     }, "Password"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Input"], {
@@ -455,7 +468,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 128,
+        lineNumber: 132,
         columnNumber: 33
       }
     })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
@@ -465,7 +478,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 132,
+        lineNumber: 136,
         columnNumber: 29
       }
     }, "SignUp")))));
@@ -2596,13 +2609,17 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         _firebase_fire__WEBPACK_IMPORTED_MODULE_3__["firestore"].collection('todos').add({
           todo: this.state.noteText
         });
+        this.setState({
+          noteText: ''
+        });
       }
     });
 
     this.state = {
       noteText: '',
-      notes: []
-    }; // this.Card=this.Card.bind(this);
+      notes: [],
+      id: []
+    };
   }
 
   componentDidMount() {
@@ -2611,9 +2628,12 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         console.log('user logged in: ', user);
         _firebase_fire__WEBPACK_IMPORTED_MODULE_3__["firestore"].collection('todos').get().then(querySnapshot => {
           querySnapshot.docs.forEach(doc => {
-            const data = doc.data().todo; //<Note data={data}/>;
+            const data = doc.data().todo;
+            const id = doc.id;
+            console.log(id); //<Note data={data}/>;
+            // console.log(data);
+            // console.log(id);
 
-            console.log(data);
             this.setState({
               notes: doc.data()
             }); //const data=doc.data();
@@ -2624,11 +2644,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         console.log('user logged out');
       }
     });
-  } // Card({data}){
-  // <div>
-  // {data}
-  // </div>
-
+  }
 
   updateNoteText(noteText) {
     this.setState({
@@ -2645,18 +2661,19 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   render() {
+    console.log(this.state.notes);
     return __jsx("div", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 82,
+        lineNumber: 88,
         columnNumber: 7
       }
     }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84,
+        lineNumber: 90,
         columnNumber: 11
       }
     }), __jsx(_main__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -2664,15 +2681,15 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 85,
-        columnNumber: 12
+        lineNumber: 93,
+        columnNumber: 10
       }
     }), __jsx("div", {
       className: "container",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 87,
+        lineNumber: 96,
         columnNumber: 9
       }
     }, __jsx("div", {
@@ -2687,7 +2704,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 88,
+        lineNumber: 97,
         columnNumber: 9
       }
     }, "Add note"), __jsx("input", {
@@ -2706,7 +2723,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 89,
+        lineNumber: 98,
         columnNumber: 9
       }
     })));
@@ -2730,119 +2747,113 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\Note.js";
+
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+const setupGuides = data => {
+  data.forEach(doc => {
+    const guide = doc.data();
 
-function Note(data) {
-  return __jsx("div", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 5,
-      columnNumber: 9
-    }
-  }, data);
-}
+    __jsx("div", {
+      className: "card text-dark mb-3 mt-4 ml-3",
+      style: {
+        maxWidth: "50rem",
+        backgroundColor: "#e6ff99"
+      },
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 7,
+        columnNumber: 5
+      }
+    }, __jsx("div", {
+      className: "card-content",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 8,
+        columnNumber: 5
+      }
+    }, __jsx("div", {
+      className: "level",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9,
+        columnNumber: 13
+      }
+    }, __jsx("div", {
+      className: "level-left",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10,
+        columnNumber: 13
+      }
+    }, __jsx("div", {
+      className: "level-item",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11,
+        columnNumber: 13
+      }
+    }, __jsx("div", {
+      className: "card-body",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12,
+        columnNumber: 5
+      }
+    }, __jsx("p", {
+      className: "card-text ",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14,
+        columnNumber: 2
+      }
+    }, __jsx("h3", {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14,
+        columnNumber: 28
+      }
+    }, guide.todo))))), __jsx("div", {
+      className: "level-right",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19,
+        columnNumber: 3
+      }
+    }, __jsx("div", {
+      className: "level-item",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20,
+        columnNumber: 3
+      }
+    }, __jsx("button", {
+      type: "button",
+      className: "btn btn-danger",
+      style: {
+        float: "right"
+      },
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21,
+        columnNumber: 2
+      }
+    }, "Delete"))))));
+  });
+};
 
-/* harmony default export */ __webpack_exports__["default"] = (Note);
-
-/***/ }),
-
-/***/ "./pages/global.style.js":
-/*!*******************************!*\
-  !*** ./pages/global.style.js ***!
-  \*******************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
-
-styled_components__WEBPACK_IMPORTED_MODULE_0__["createGlobalStyle"]`
-  @import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,600&subset=latin-ext');
-  * {
-    margin: 0px;
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    padding: 0;
-    background: hsl(0, 1%, 81%);
-    font-family: 'Raleway', sans-serif;
-  }
-  .container {
-    padding-bottom: 80px;
-  }
-  
-  .header {
-    font-size: 22px;
-    font-weight: bold;
-    font-style: italic;
-    text-align: center;
-    text-transform: uppercase;
-    color: #f1f1f1;
-    background: #595a5c;
-    padding: 40px;
-    border-bottom: 1px solid #474747;
-  }
-  .note {
-    color: #727070;
-    padding: 40px;
-    margin: 20px;
-    background: #fff;
-    border: solid 1px #e9e9e9;
-    cursor: pointer;
-    box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.1);
-    -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.1);
-    -moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.1);
-    -webkit-transition:background-color .2s ease-out;
-    -o-transition:background-color .2s ease-out;
-    transition:background-color .2s ease-out
-  }
-  .note:hover {
-    transform: scale(1.02);
-    background-color: #dbb5c7;
-  }
-  .button {
-    position: fixed;
-    z-index: 1;
-    right: 40px;
-    bottom: 40px;
-    width: 50px;
-    height: 50px;
-    border-radius: 20%;
-    text-align: center;
-    line-height: 50px;
-    font-size: 28px;
-    font-weight: bold;
-    color: #f1f1f1;
-    background: #595a5c;
-    cursor: pointer;
-    box-shadow: 5px 5px 6px 0px rgba(0,0,0,0.8);
-    -webkit-box-shadow: 5px 5px 6px 0px rgba(0,0,0,0.8);
-    -moz-box-shadow: 5px 5px 6px 0px rgba(0,0,0,0.8);
-    transition: transform .06s ease;
-  }
-  .button:hover {
-    transform: scale(1.05);
-  }
-  .input {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 80px;
-    line-height: 80px;
-    padding: 0 20px;
-    border: none;
-    outline: none;
-    background: #595a5c;
-    font-size: 16px;
-    color: #f1f1f1;
-    border-top: 1px solid #474747;
-  }
-`;
+/* harmony default export */ __webpack_exports__["default"] = (setupGuides);
 
 /***/ }),
 
@@ -2887,13 +2898,17 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         _firebase_fire__WEBPACK_IMPORTED_MODULE_3__["firestore"].collection('todos').add({
           todo: this.state.noteText
         });
+        this.setState({
+          noteText: ''
+        });
       }
     });
 
     this.state = {
       noteText: '',
-      notes: []
-    }; // this.Card=this.Card.bind(this);
+      notes: [],
+      id: []
+    };
   }
 
   componentDidMount() {
@@ -2902,9 +2917,12 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         console.log('user logged in: ', user);
         _firebase_fire__WEBPACK_IMPORTED_MODULE_3__["firestore"].collection('todos').get().then(querySnapshot => {
           querySnapshot.docs.forEach(doc => {
-            const data = doc.data().todo; //<Note data={data}/>;
+            const data = doc.data().todo;
+            const id = doc.id;
+            console.log(id); //<Note data={data}/>;
+            // console.log(data);
+            // console.log(id);
 
-            console.log(data);
             this.setState({
               notes: doc.data()
             }); //const data=doc.data();
@@ -2915,11 +2933,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         console.log('user logged out');
       }
     });
-  } // Card({data}){
-  // <div>
-  // {data}
-  // </div>
-
+  }
 
   updateNoteText(noteText) {
     this.setState({
@@ -2936,18 +2950,19 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   render() {
+    console.log(this.state.notes);
     return __jsx("div", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 82,
+        lineNumber: 88,
         columnNumber: 7
       }
     }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84,
+        lineNumber: 90,
         columnNumber: 11
       }
     }), __jsx(_main__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -2955,15 +2970,15 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 85,
-        columnNumber: 12
+        lineNumber: 93,
+        columnNumber: 10
       }
     }), __jsx("div", {
       className: "container",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 87,
+        lineNumber: 96,
         columnNumber: 9
       }
     }, __jsx("div", {
@@ -2978,7 +2993,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 88,
+        lineNumber: 97,
         columnNumber: 9
       }
     }, "Add note"), __jsx("input", {
@@ -2997,7 +3012,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 89,
+        lineNumber: 98,
         columnNumber: 9
       }
     })));
@@ -3022,11 +3037,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home */ "./pages/Home.js");
 /* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/layout */ "./components/layout.js");
-/* harmony import */ var _global_style__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./global.style */ "./pages/global.style.js");
 var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
 
 
 
@@ -3063,32 +3076,68 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactstrap */ "reactstrap");
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(reactstrap__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
 var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\main.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
 class Card extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  // deleteTodo (id) {
+  //    firestore.collection('todos').doc(id).delete();
+  //     } 
   render() {
     return __jsx("div", {
-      className: "card text-primary mb-3 mt-4 ml-3",
+      className: "card text-dark mb-3 mt-4 ml-3",
       style: {
         maxWidth: "50rem",
-        fontSize: "2 px",
-        backgroundColor: "#CE9FA1"
+        backgroundColor: "#e6ff99"
       },
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 7,
+        lineNumber: 18,
         columnNumber: 25
+      }
+    }, __jsx("div", {
+      className: "card-content",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19,
+        columnNumber: 25
+      }
+    }, __jsx("div", {
+      className: "level",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20,
+        columnNumber: 33
+      }
+    }, __jsx("div", {
+      className: "level-left",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21,
+        columnNumber: 33
+      }
+    }, __jsx("div", {
+      className: "level-item",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22,
+        columnNumber: 33
       }
     }, __jsx("div", {
       className: "card-body",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 9,
+        lineNumber: 23,
         columnNumber: 25
       }
     }, __jsx("p", {
@@ -3096,10 +3145,45 @@ class Card extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 11,
-        columnNumber: 17
+        lineNumber: 25,
+        columnNumber: 22
       }
-    }, this.props.notes)));
+    }, __jsx("h3", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25,
+        columnNumber: 48
+      }
+    }, this.props.notes))))), __jsx("div", {
+      className: "level-right",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30,
+        columnNumber: 23
+      }
+    }, __jsx("div", {
+      className: "level-item",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31,
+        columnNumber: 23
+      }
+    }, __jsx("button", {
+      type: "button",
+      className: "btn btn-danger",
+      style: {
+        float: "right"
+      },
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32,
+        columnNumber: 22
+      }
+    }, "Delete"))))));
   }
 
 }
@@ -3249,17 +3333,6 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("reactstrap");
-
-/***/ }),
-
-/***/ "styled-components":
-/*!************************************!*\
-  !*** external "styled-components" ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("styled-components");
 
 /***/ }),
 

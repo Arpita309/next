@@ -5,7 +5,7 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
   Button, Modal, ModalHeader, ModalBody,
   Form, FormGroup, Input, Label,NavLink } from 'reactstrap';
   import{auth,database, firestore}from '../firebase/fire';
-  
+  import Card from '../pages/main'
   
     
 
@@ -48,13 +48,17 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
      handleSignUp(event) {
       this.toggleSignup();
       event.preventDefault();
+      console.log("username : "+ this.username.value + "password : "+this.password.value);
+    
       auth.createUserWithEmailAndPassword(this.username.value,this.password.value).then (Credential=>{console.log(Credential)});
      }
+
      handleLogOut(event){
         event.preventDefault();
         auth.signOut().then(() => {
             console.log('user signed out');
-        })
+        });
+        <Card notes=""/>
         
      }
 

@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[15],{HOlU:function(n,t,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/main",function(){return o("KnIj")}])},Qetd:function(n,t,o){"use strict";var e=Object.assign.bind(Object);n.exports=e,n.exports.default=n.exports}},[["HOlU",0,1,3,4,6,5]]]);

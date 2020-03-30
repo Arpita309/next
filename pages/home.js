@@ -13,8 +13,8 @@ class Home extends Component {
     this.state= {
       noteText: '',
       notes: [],
-    };
-   // this.Card=this.Card.bind(this);
+      id:  []  };
+   
   }
  
     componentDidMount(){
@@ -22,12 +22,17 @@ class Home extends Component {
         if (user) {
           console.log('user logged in: ', user);
           firestore.collection('todos').get().then(querySnapshot => {
+            
           querySnapshot.docs.forEach(doc=>{
             const data=doc.data().todo;
+            const id=doc.id;
+            console.log(id);
           //<Note data={data}/>;
-            console.log(data);
+           // console.log(data);
+           // console.log(id);
            
-           this.setState({notes:doc.data()});
+           this.setState({notes:doc.data()
+           });
            //const data=doc.data();
           // console.log(data);
            
@@ -39,10 +44,7 @@ class Home extends Component {
       })
     }
 
-  // Card({data}){
-    // <div>
-    // {data}
-    // </div>
+ 
         
    
    
@@ -64,6 +66,7 @@ class Home extends Component {
     firestore.collection('todos').add({
       todo:this.state.noteText
     })
+    this.setState({ noteText: ''});
       
     }
   }
@@ -73,16 +76,22 @@ class Home extends Component {
     noteArr.splice(index, 1);
     this.setState({ notes: noteArr })
   }
+  
 
   render() {
 
+   
+     console.log(this.state.notes) ;
     
 
     return (
       <div>
          
           <Header/>
-           <Card notes={this.state.notes.todo} />
+        
+            
+         <Card notes={this.state.notes.todo}/>
+          
     
         <div className="container">
         <div className="button " onClick={noteText => this.updateNoteText(noteText)} style ={{fontStyle:"oblique",marginBottom:"10px",marginTop:"80px", color:"#E54E65"}}>Add note</div>
