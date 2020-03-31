@@ -12,8 +12,10 @@ class Home extends Component {
     super(props);
     this.state= {
       noteText: '',
-      notes: [],
-      id:  []  };
+      notes: [
+        {todo:""}
+      ],
+      id:[]  };
    
   }
  
@@ -24,14 +26,10 @@ class Home extends Component {
           firestore.collection('todos').get().then(querySnapshot => {
             
           querySnapshot.docs.forEach(doc=>{
-            const data=doc.data().todo;
-            const id=doc.id;
-            console.log(id);
-          //<Note data={data}/>;
-           // console.log(data);
-           // console.log(id);
+            
            
-           this.setState({notes:doc.data()
+           
+           this.setState({notes:doc.data(),id:doc.id
            });
            //const data=doc.data();
           // console.log(data);
@@ -82,15 +80,17 @@ class Home extends Component {
 
    
      console.log(this.state.notes) ;
+     console.log(this.state.id) ;
     
 
     return (
       <div>
          
           <Header/>
+          
+          
+             <Card notes={this.state.notes} id={this.state.id}/>
         
-            
-         <Card notes={this.state.notes.todo}/>
           
     
         <div className="container">

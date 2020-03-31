@@ -58,7 +58,7 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
         auth.signOut().then(() => {
             console.log('user signed out');
         });
-        <Card notes=""/>
+        <Card notes={""}/>
         
      }
 

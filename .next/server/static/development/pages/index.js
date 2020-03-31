@@ -504,7 +504,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Navbar */ "./components/Navbar.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/home */ "./pages/home.js");
+/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Home */ "./pages/Home.js");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/head */ "next/head");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\components\\layout.js";
@@ -2617,7 +2617,9 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
     this.state = {
       noteText: '',
-      notes: [],
+      notes: [{
+        todo: ""
+      }],
       id: []
     };
   }
@@ -2628,14 +2630,9 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         console.log('user logged in: ', user);
         _firebase_fire__WEBPACK_IMPORTED_MODULE_3__["firestore"].collection('todos').get().then(querySnapshot => {
           querySnapshot.docs.forEach(doc => {
-            const data = doc.data().todo;
-            const id = doc.id;
-            console.log(id); //<Note data={data}/>;
-            // console.log(data);
-            // console.log(id);
-
             this.setState({
-              notes: doc.data()
+              notes: doc.data(),
+              id: doc.id
             }); //const data=doc.data();
             // console.log(data);
           });
@@ -2662,27 +2659,29 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
   render() {
     console.log(this.state.notes);
+    console.log(this.state.id);
     return __jsx("div", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 88,
+        lineNumber: 87,
         columnNumber: 7
       }
     }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 90,
+        lineNumber: 89,
         columnNumber: 11
       }
     }), __jsx(_main__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      notes: this.state.notes.todo,
+      notes: this.state.notes,
+      id: this.state.id,
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 93,
-        columnNumber: 10
+        lineNumber: 92,
+        columnNumber: 14
       }
     }), __jsx("div", {
       className: "container",
@@ -2746,135 +2745,11 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactstrap */ "reactstrap");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(reactstrap__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
+/* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Navbar */ "./components/Navbar.js");
 var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\Note.js";
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-const setupGuides = data => {
-  data.forEach(doc => {
-    const guide = doc.data();
-
-    __jsx("div", {
-      className: "card text-dark mb-3 mt-4 ml-3",
-      style: {
-        maxWidth: "50rem",
-        backgroundColor: "#e6ff99"
-      },
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 7,
-        columnNumber: 5
-      }
-    }, __jsx("div", {
-      className: "card-content",
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 8,
-        columnNumber: 5
-      }
-    }, __jsx("div", {
-      className: "level",
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 9,
-        columnNumber: 13
-      }
-    }, __jsx("div", {
-      className: "level-left",
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 10,
-        columnNumber: 13
-      }
-    }, __jsx("div", {
-      className: "level-item",
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 11,
-        columnNumber: 13
-      }
-    }, __jsx("div", {
-      className: "card-body",
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 12,
-        columnNumber: 5
-      }
-    }, __jsx("p", {
-      className: "card-text ",
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 14,
-        columnNumber: 2
-      }
-    }, __jsx("h3", {
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 14,
-        columnNumber: 28
-      }
-    }, guide.todo))))), __jsx("div", {
-      className: "level-right",
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 19,
-        columnNumber: 3
-      }
-    }, __jsx("div", {
-      className: "level-item",
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 20,
-        columnNumber: 3
-      }
-    }, __jsx("button", {
-      type: "button",
-      className: "btn btn-danger",
-      style: {
-        float: "right"
-      },
-      __self: undefined,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21,
-        columnNumber: 2
-      }
-    }, "Delete"))))));
-  });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (setupGuides);
-
-/***/ }),
-
-/***/ "./pages/home.js":
-/*!***********************!*\
-  !*** ./pages/home.js ***!
-  \***********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Note__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Note */ "./pages/Note.js");
-/* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Navbar */ "./components/Navbar.js");
-/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! reactstrap */ "reactstrap");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(reactstrap__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./main */ "./pages/main.js");
-var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\home.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -2883,144 +2758,312 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+const todoRef = _firebase_fire__WEBPACK_IMPORTED_MODULE_2__["firestore"].collection("todos");
 
+class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor() {
+    super();
 
+    _defineProperty(this, "addTodo", e => {
+      e.preventDefault();
+      const ref = todoRef.doc();
+      ref.set({
+        task: this.state.todo,
+        createdAt: new Date().getTime(),
+        done: false,
+        id: ref.id
+      }).then(function (docRef) {
+        console.log(docRef);
+      }).catch(function (error) {
+        console.error("Error adding document: ", error);
+      });
+    });
 
-class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
-  constructor(props) {
-    super(props);
+    _defineProperty(this, "updateTodo", e => {
+      this.toggleUpdate();
+      e.preventDefault();
+      const a = e.target;
+      const b = this.state.update;
+      const ref = todoRef.doc();
+      todoRef.doc(b).update({
+        task: this.username.value
+      }).then(function (docRef) {
+        console.log(docRef);
+      }).catch(function (error) {
+        console.error("Error updating document: ", error);
+      });
+    });
 
-    _defineProperty(this, "handleKeyPress", event => {
-      if (event.key === "Enter") {
-        // let noteArr = this.state.notes;
-        // noteArr.push(this.state.noteText);
-        //  this.setState({ noteText: ''});
-        _firebase_fire__WEBPACK_IMPORTED_MODULE_3__["firestore"].collection('todos').add({
-          todo: this.state.noteText
-        });
-        this.setState({
-          noteText: ''
-        });
-      }
+    _defineProperty(this, "deleteTodo", e => {
+      todoRef.doc(e.target.value).delete().then(function () {
+        console.log("Document successfully deleted!");
+      }).catch(function (error) {
+        console.error("Error removing document: ", error);
+      });
+    });
+
+    _defineProperty(this, "handleUpdate", e => {
+      this.toggleUpdate();
+      const t = e.target;
+      this.setState({
+        update: t.value
+      });
+    });
+
+    _defineProperty(this, "handleChange", e => {
+      const t = e.target;
+      this.setState({
+        [t.name]: t.value
+      });
     });
 
     this.state = {
-      noteText: '',
-      notes: [],
-      id: []
+      todos: [],
+      isUpdate: false,
+      update: ''
     };
+    this.toggleUpdate = this.toggleUpdate.bind(this);
   }
 
-  componentDidMount() {
-    _firebase_fire__WEBPACK_IMPORTED_MODULE_3__["auth"].onAuthStateChanged(user => {
-      if (user) {
-        console.log('user logged in: ', user);
-        _firebase_fire__WEBPACK_IMPORTED_MODULE_3__["firestore"].collection('todos').get().then(querySnapshot => {
-          querySnapshot.docs.forEach(doc => {
-            const data = doc.data().todo;
-            const id = doc.id;
-            console.log(id); //<Note data={data}/>;
-            // console.log(data);
-            // console.log(id);
-
-            this.setState({
-              notes: doc.data()
-            }); //const data=doc.data();
-            // console.log(data);
-          });
-        });
-      } else {
-        console.log('user logged out');
-      }
-    });
-  }
-
-  updateNoteText(noteText) {
+  toggleUpdate() {
     this.setState({
-      noteText: noteText.target.value
+      isUpdate: !this.state.isUpdate
     });
   }
 
-  deleteNote(index) {
-    let noteArr = this.state.notes;
-    noteArr.splice(index, 1);
-    this.setState({
-      notes: noteArr
+  componentWillMount() {
+    todoRef.orderBy('createdAt').onSnapshot(docSnapShot => {
+      let todos = [];
+      docSnapShot.forEach(doc => {
+        todos.push(doc.data());
+      });
+      this.setState({
+        todos,
+        loaded: true
+      });
     });
   }
 
-  render() {
-    console.log(this.state.notes);
+  renderTodoList() {
+    const ListItem = this.state.todos.map((todo, index) => {
+      return __jsx("div", {
+        className: "card text-dark mb-3 mt-4 ml-3",
+        style: {
+          maxWidth: "50rem",
+          backgroundColor: "#e6ff99"
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 104,
+          columnNumber: 9
+        }
+      }, __jsx("div", {
+        className: "card-content",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 105,
+          columnNumber: 9
+        }
+      }, __jsx("div", {
+        className: "card-body",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 110,
+          columnNumber: 9
+        }
+      }, __jsx("p", {
+        className: "card-text ",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 112,
+          columnNumber: 6
+        }
+      }, __jsx("h3", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 112,
+          columnNumber: 32
+        }
+      }, todo.task)), __jsx("button", {
+        value: todo.id,
+        className: "btn btn-sm btn-danger",
+        onClick: this.deleteTodo,
+        style: {
+          float: "right"
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 118,
+          columnNumber: 7
+        }
+      }, "X"), __jsx("button", {
+        value: todo.id,
+        className: "btn btn-sm btn-info",
+        onClick: this.handleUpdate,
+        style: {
+          float: "right"
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 119,
+          columnNumber: 7
+        }
+      }, "Update"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Modal"], {
+        isOpen: this.state.isUpdate,
+        toggle: this.toggleUpdate,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 121,
+          columnNumber: 7
+        }
+      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["ModalHeader"], {
+        toggle: this.toggleUpdate,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 122,
+          columnNumber: 17
+        }
+      }, "Update"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["ModalBody"], {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 123,
+          columnNumber: 17
+        }
+      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], {
+        onSubmit: this.updateTodo,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 124,
+          columnNumber: 21
+        }
+      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["FormGroup"], {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 127,
+          columnNumber: 29
+        }
+      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Label"], {
+        htmlFor: "username",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 128,
+          columnNumber: 33
+        }
+      }, "Task"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Input"], {
+        type: "text",
+        id: "username",
+        name: "username",
+        innerRef: input => this.username = input,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 129,
+          columnNumber: 33
+        }
+      })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+        type: "submit",
+        value: todo.id,
+        color: "primary",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 134,
+          columnNumber: 29
+        }
+      }, "Update")))))));
+    });
     return __jsx("div", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 88,
+        lineNumber: 147,
         columnNumber: 7
       }
-    }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }, ListItem);
+  }
+
+  render() {
+    console.log(this.state);
+    console.log(this.state.notes);
+    return __jsx("div", {
+      className: "App",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 90,
-        columnNumber: 11
+        lineNumber: 161,
+        columnNumber: 7
       }
-    }), __jsx(_main__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      notes: this.state.notes.todo,
+    }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 93,
-        columnNumber: 10
+        lineNumber: 162,
+        columnNumber: 9
       }
-    }), __jsx("div", {
-      className: "container",
+    }), __jsx("form", {
+      onSubmit: this.addTodo,
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 96,
+        lineNumber: 164,
         columnNumber: 9
       }
     }, __jsx("div", {
-      className: "button ",
-      onClick: noteText => this.updateNoteText(noteText),
-      style: {
-        fontStyle: "oblique",
-        marginBottom: "10px",
-        marginTop: "80px",
-        color: "#E54E65"
-      },
+      className: "input-group",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 97,
-        columnNumber: 9
+        lineNumber: 165,
+        columnNumber: 11
       }
-    }, "Add note"), __jsx("input", {
-      style: {
-        backgroundColor: "#E2CEEE"
-      },
-      placeholder: "Enter Notes",
+    }, __jsx("input", {
       type: "text",
-      className: "input ",
-      ref: input => {
-        this.textInput = input;
+      onChange: this.handleChange,
+      name: "todo",
+      style: {
+        backgroundColor: "#E2CEEE",
+        marginTop: "20px",
+        marginLeft: "8px"
       },
-      value: this.state.noteText,
-      onChange: noteText => this.updateNoteText(noteText),
-      onKeyPress: this.handleKeyPress.bind(this),
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 98,
-        columnNumber: 9
+        lineNumber: 166,
+        columnNumber: 13
       }
-    })));
+    }), __jsx("button", {
+      className: "btn btn-primary",
+      type: "submit",
+      onClick: this.addTodo,
+      style: {
+        marginTop: "20px",
+        marginLeft: "8px"
+      },
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 167,
+        columnNumber: 13
+      }
+    }, "Add Todo"))), this.renderTodoList());
   }
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Home);
+/* harmony default export */ __webpack_exports__["default"] = (App);
 
 /***/ }),
 
@@ -3035,26 +3078,26 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home */ "./pages/Home.js");
-/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/layout */ "./components/layout.js");
+/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/layout */ "./components/layout.js");
+/* harmony import */ var _note__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./note */ "./pages/note.js");
 var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-const Index = () => __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 7,
-    columnNumber: 3
-  }
-}, __jsx(_Home__WEBPACK_IMPORTED_MODULE_1__["default"], {
+const Index = () => __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
     lineNumber: 8,
+    columnNumber: 3
+  }
+}, __jsx(_note__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 9,
     columnNumber: 6
   }
 }));
@@ -3088,7 +3131,16 @@ class Card extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   //    firestore.collection('todos').doc(id).delete();
   //     } 
   render() {
+    console.log(this.props.id);
+    console.log(this.props.notes);
     return __jsx("div", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17,
+        columnNumber: 1
+      }
+    }, __jsx("div", {
       className: "card text-dark mb-3 mt-4 ml-3",
       style: {
         maxWidth: "50rem",
@@ -3097,15 +3149,15 @@ class Card extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18,
-        columnNumber: 25
+        lineNumber: 19,
+        columnNumber: 41
       }
     }, __jsx("div", {
       className: "card-content",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19,
+        lineNumber: 20,
         columnNumber: 25
       }
     }, __jsx("div", {
@@ -3113,7 +3165,7 @@ class Card extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20,
+        lineNumber: 21,
         columnNumber: 33
       }
     }, __jsx("div", {
@@ -3121,7 +3173,7 @@ class Card extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21,
+        lineNumber: 23,
         columnNumber: 33
       }
     }, __jsx("div", {
@@ -3129,7 +3181,7 @@ class Card extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22,
+        lineNumber: 24,
         columnNumber: 33
       }
     }, __jsx("div", {
@@ -3137,7 +3189,7 @@ class Card extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23,
+        lineNumber: 26,
         columnNumber: 25
       }
     }, __jsx("p", {
@@ -3145,22 +3197,37 @@ class Card extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25,
+        lineNumber: 28,
         columnNumber: 22
       }
     }, __jsx("h3", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25,
+        lineNumber: 28,
         columnNumber: 48
       }
-    }, this.props.notes))))), __jsx("div", {
+    }, this.props.notes.todo)), __jsx("p", {
+      className: "card-text ",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29,
+        columnNumber: 22
+      }
+    }, __jsx("h3", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29,
+        columnNumber: 48
+      }
+    }, " ", this.props.id))))), __jsx("div", {
       className: "level-right",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30,
+        lineNumber: 34,
         columnNumber: 23
       }
     }, __jsx("div", {
@@ -3168,7 +3235,7 @@ class Card extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31,
+        lineNumber: 35,
         columnNumber: 23
       }
     }, __jsx("button", {
@@ -3180,15 +3247,351 @@ class Card extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32,
+        lineNumber: 36,
         columnNumber: 22
       }
-    }, "Delete"))))));
+    }, "Delete")))))));
   }
 
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Card);
+/*{this.props.notes.forEach(todo => {
+        <li>{todo}</li>    
+    })}*/
+
+/***/ }),
+
+/***/ "./pages/note.js":
+/*!***********************!*\
+  !*** ./pages/note.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactstrap */ "reactstrap");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(reactstrap__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
+/* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Navbar */ "./components/Navbar.js");
+var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\note.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+const todoRef = _firebase_fire__WEBPACK_IMPORTED_MODULE_2__["firestore"].collection("todos");
+
+class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor() {
+    super();
+
+    _defineProperty(this, "addTodo", e => {
+      e.preventDefault();
+      const ref = todoRef.doc();
+      ref.set({
+        task: this.state.todo,
+        createdAt: new Date().getTime(),
+        done: false,
+        id: ref.id
+      }).then(function (docRef) {
+        console.log(docRef);
+      }).catch(function (error) {
+        console.error("Error adding document: ", error);
+      });
+    });
+
+    _defineProperty(this, "updateTodo", e => {
+      this.toggleUpdate();
+      e.preventDefault();
+      const a = e.target;
+      const b = this.state.update;
+      const ref = todoRef.doc();
+      todoRef.doc(b).update({
+        task: this.username.value
+      }).then(function (docRef) {
+        console.log(docRef);
+      }).catch(function (error) {
+        console.error("Error updating document: ", error);
+      });
+    });
+
+    _defineProperty(this, "deleteTodo", e => {
+      todoRef.doc(e.target.value).delete().then(function () {
+        console.log("Document successfully deleted!");
+      }).catch(function (error) {
+        console.error("Error removing document: ", error);
+      });
+    });
+
+    _defineProperty(this, "handleUpdate", e => {
+      this.toggleUpdate();
+      const t = e.target;
+      this.setState({
+        update: t.value
+      });
+    });
+
+    _defineProperty(this, "handleChange", e => {
+      const t = e.target;
+      this.setState({
+        [t.name]: t.value
+      });
+    });
+
+    this.state = {
+      todos: [],
+      isUpdate: false,
+      update: ''
+    };
+    this.toggleUpdate = this.toggleUpdate.bind(this);
+  }
+
+  toggleUpdate() {
+    this.setState({
+      isUpdate: !this.state.isUpdate
+    });
+  }
+
+  componentWillMount() {
+    todoRef.orderBy('createdAt').onSnapshot(docSnapShot => {
+      let todos = [];
+      docSnapShot.forEach(doc => {
+        todos.push(doc.data());
+      });
+      this.setState({
+        todos,
+        loaded: true
+      });
+    });
+  }
+
+  renderTodoList() {
+    const ListItem = this.state.todos.map((todo, index) => {
+      return __jsx("div", {
+        className: "card text-dark mb-3 mt-4 ml-3",
+        style: {
+          maxWidth: "50rem",
+          backgroundColor: "#e6ff99"
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 104,
+          columnNumber: 9
+        }
+      }, __jsx("div", {
+        className: "card-content",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 105,
+          columnNumber: 9
+        }
+      }, __jsx("div", {
+        className: "card-body",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 110,
+          columnNumber: 9
+        }
+      }, __jsx("p", {
+        className: "card-text ",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 112,
+          columnNumber: 6
+        }
+      }, __jsx("h3", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 112,
+          columnNumber: 32
+        }
+      }, todo.task)), __jsx("button", {
+        value: todo.id,
+        className: "btn btn-sm btn-danger",
+        onClick: this.deleteTodo,
+        style: {
+          float: "right"
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 118,
+          columnNumber: 7
+        }
+      }, "X"), __jsx("button", {
+        value: todo.id,
+        className: "btn btn-sm btn-info",
+        onClick: this.handleUpdate,
+        style: {
+          float: "right"
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 119,
+          columnNumber: 7
+        }
+      }, "Update"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Modal"], {
+        isOpen: this.state.isUpdate,
+        toggle: this.toggleUpdate,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 121,
+          columnNumber: 7
+        }
+      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["ModalHeader"], {
+        toggle: this.toggleUpdate,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 122,
+          columnNumber: 17
+        }
+      }, "Update"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["ModalBody"], {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 123,
+          columnNumber: 17
+        }
+      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], {
+        onSubmit: this.updateTodo,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 124,
+          columnNumber: 21
+        }
+      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["FormGroup"], {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 127,
+          columnNumber: 29
+        }
+      }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Label"], {
+        htmlFor: "username",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 128,
+          columnNumber: 33
+        }
+      }, "Task"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Input"], {
+        type: "text",
+        id: "username",
+        name: "username",
+        innerRef: input => this.username = input,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 129,
+          columnNumber: 33
+        }
+      })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+        type: "submit",
+        value: todo.id,
+        color: "primary",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 134,
+          columnNumber: 29
+        }
+      }, "Update")))))));
+    });
+    return __jsx("div", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 147,
+        columnNumber: 7
+      }
+    }, ListItem);
+  }
+
+  render() {
+    console.log(this.state);
+    console.log(this.state.notes);
+    return __jsx("div", {
+      className: "App",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 161,
+        columnNumber: 7
+      }
+    }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 162,
+        columnNumber: 9
+      }
+    }), __jsx("form", {
+      onSubmit: this.addTodo,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 164,
+        columnNumber: 9
+      }
+    }, __jsx("div", {
+      className: "input-group",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 165,
+        columnNumber: 11
+      }
+    }, __jsx("input", {
+      type: "text",
+      onChange: this.handleChange,
+      name: "todo",
+      style: {
+        backgroundColor: "#E2CEEE",
+        marginTop: "20px",
+        marginLeft: "8px"
+      },
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 166,
+        columnNumber: 13
+      }
+    }), __jsx("button", {
+      className: "btn btn-primary",
+      type: "submit",
+      onClick: this.addTodo,
+      style: {
+        marginTop: "20px",
+        marginLeft: "8px"
+      },
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 167,
+        columnNumber: 13
+      }
+    }, "Add Todo"))), this.renderTodoList());
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (App);
 
 /***/ }),
 

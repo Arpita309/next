@@ -1,11 +1,12 @@
-import Home from "./Home";
+
 import Layout from "../components/layout";
+import App from "./note";
 
 
 
 const Index = () => (
   <Layout>
-     <Home/>
+     <App/>
      
   </Layout>
     

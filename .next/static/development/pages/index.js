@@ -457,7 +457,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Navbar */ "./components/Navbar.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _pages_home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/home */ "./pages/home.js");
+/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Home */ "./pages/Home.js");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/head */ "./node_modules/next/dist/next-server/lib/head.js");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_4__);
 var _this = undefined,
@@ -63520,7 +63520,9 @@ var Home = /*#__PURE__*/function (_Component) {
 
     _this.state = {
       noteText: '',
-      notes: [],
+      notes: [{
+        todo: ""
+      }],
       id: []
     };
     return _this;
@@ -63536,14 +63538,9 @@ var Home = /*#__PURE__*/function (_Component) {
           console.log('user logged in: ', user);
           _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["firestore"].collection('todos').get().then(function (querySnapshot) {
             querySnapshot.docs.forEach(function (doc) {
-              var data = doc.data().todo;
-              var id = doc.id;
-              console.log(id); //<Note data={data}/>;
-              // console.log(data);
-              // console.log(id);
-
               _this2.setState({
-                notes: doc.data()
+                notes: doc.data(),
+                id: doc.id
               }); //const data=doc.data();
               // console.log(data);
 
@@ -63576,27 +63573,29 @@ var Home = /*#__PURE__*/function (_Component) {
       var _this3 = this;
 
       console.log(this.state.notes);
+      console.log(this.state.id);
       return __jsx("div", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 88,
+          lineNumber: 87,
           columnNumber: 7
         }
       }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_9__["default"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 90,
+          lineNumber: 89,
           columnNumber: 11
         }
       }), __jsx(_main__WEBPACK_IMPORTED_MODULE_12__["default"], {
-        notes: this.state.notes.todo,
+        notes: this.state.notes,
+        id: this.state.id,
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93,
-          columnNumber: 10
+          lineNumber: 92,
+          columnNumber: 14
         }
       }), __jsx("div", {
         className: "container",
@@ -63664,130 +63663,6 @@ var Home = /*#__PURE__*/function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _this = undefined,
-    _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\Note.js";
-
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-var setupGuides = function setupGuides(data) {
-  data.forEach(function (doc) {
-    var guide = doc.data();
-
-    __jsx("div", {
-      className: "card text-dark mb-3 mt-4 ml-3",
-      style: {
-        maxWidth: "50rem",
-        backgroundColor: "#e6ff99"
-      },
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 7,
-        columnNumber: 5
-      }
-    }, __jsx("div", {
-      className: "card-content",
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 8,
-        columnNumber: 5
-      }
-    }, __jsx("div", {
-      className: "level",
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 9,
-        columnNumber: 13
-      }
-    }, __jsx("div", {
-      className: "level-left",
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 10,
-        columnNumber: 13
-      }
-    }, __jsx("div", {
-      className: "level-item",
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 11,
-        columnNumber: 13
-      }
-    }, __jsx("div", {
-      className: "card-body",
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 12,
-        columnNumber: 5
-      }
-    }, __jsx("p", {
-      className: "card-text ",
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 14,
-        columnNumber: 2
-      }
-    }, __jsx("h3", {
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 14,
-        columnNumber: 28
-      }
-    }, guide.todo))))), __jsx("div", {
-      className: "level-right",
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 19,
-        columnNumber: 3
-      }
-    }, __jsx("div", {
-      className: "level-item",
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 20,
-        columnNumber: 3
-      }
-    }, __jsx("button", {
-      type: "button",
-      className: "btn btn-danger",
-      style: {
-        "float": "right"
-      },
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21,
-        columnNumber: 2
-      }
-    }, "Delete"))))));
-  });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (setupGuides);
-
-/***/ }),
-
-/***/ "./pages/home.js":
-/*!***********************!*\
-  !*** ./pages/home.js ***!
-  \***********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
 /* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
 /* harmony import */ var _babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
@@ -63797,11 +63672,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _Note__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Note */ "./pages/Note.js");
-/* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Navbar */ "./components/Navbar.js");
-/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
-/* harmony import */ var _main__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./main */ "./pages/main.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
+/* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/Navbar */ "./components/Navbar.js");
 
 
 
@@ -63809,7 +63682,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\home.js";
+var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\Note.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
 
 function _createSuper(Derived) { return function () { var Super = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return Object(_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
@@ -63820,170 +63693,337 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
+var todoRef = _firebase_fire__WEBPACK_IMPORTED_MODULE_9__["firestore"].collection("todos");
 
+var App = /*#__PURE__*/function (_Component) {
+  Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(App, _Component);
 
+  var _super = _createSuper(App);
 
-var Home = /*#__PURE__*/function (_Component) {
-  Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(Home, _Component);
-
-  var _super = _createSuper(Home);
-
-  function Home(props) {
+  function App() {
     var _this;
 
-    Object(_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Home);
+    Object(_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, App);
 
-    _this = _super.call(this, props);
+    _this = _super.call(this);
 
-    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "handleKeyPress", function (event) {
-      if (event.key === "Enter") {
-        // let noteArr = this.state.notes;
-        // noteArr.push(this.state.noteText);
-        //  this.setState({ noteText: ''});
-        _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["firestore"].collection('todos').add({
-          todo: _this.state.noteText
-        });
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "addTodo", function (e) {
+      e.preventDefault();
+      var ref = todoRef.doc();
+      ref.set({
+        task: _this.state.todo,
+        createdAt: new Date().getTime(),
+        done: false,
+        id: ref.id
+      }).then(function (docRef) {
+        console.log(docRef);
+      })["catch"](function (error) {
+        console.error("Error adding document: ", error);
+      });
+    });
 
-        _this.setState({
-          noteText: ''
-        });
-      }
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "updateTodo", function (e) {
+      _this.toggleUpdate();
+
+      e.preventDefault();
+      var a = e.target;
+      var b = _this.state.update;
+      var ref = todoRef.doc();
+      todoRef.doc(b).update({
+        task: _this.username.value
+      }).then(function (docRef) {
+        console.log(docRef);
+      })["catch"](function (error) {
+        console.error("Error updating document: ", error);
+      });
+    });
+
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "deleteTodo", function (e) {
+      todoRef.doc(e.target.value)["delete"]().then(function () {
+        console.log("Document successfully deleted!");
+      })["catch"](function (error) {
+        console.error("Error removing document: ", error);
+      });
+    });
+
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "handleUpdate", function (e) {
+      _this.toggleUpdate();
+
+      var t = e.target;
+
+      _this.setState({
+        update: t.value
+      });
+    });
+
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "handleChange", function (e) {
+      var t = e.target;
+
+      _this.setState(Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])({}, t.name, t.value));
     });
 
     _this.state = {
-      noteText: '',
-      notes: [],
-      id: []
+      todos: [],
+      isUpdate: false,
+      update: ''
     };
+    _this.toggleUpdate = _this.toggleUpdate.bind(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this));
     return _this;
   }
 
-  Object(_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Home, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
+  Object(_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(App, [{
+    key: "toggleUpdate",
+    value: function toggleUpdate() {
+      this.setState({
+        isUpdate: !this.state.isUpdate
+      });
+    }
+  }, {
+    key: "componentWillMount",
+    value: function componentWillMount() {
       var _this2 = this;
 
-      _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["auth"].onAuthStateChanged(function (user) {
-        if (user) {
-          console.log('user logged in: ', user);
-          _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["firestore"].collection('todos').get().then(function (querySnapshot) {
-            querySnapshot.docs.forEach(function (doc) {
-              var data = doc.data().todo;
-              var id = doc.id;
-              console.log(id); //<Note data={data}/>;
-              // console.log(data);
-              // console.log(id);
+      todoRef.orderBy('createdAt').onSnapshot(function (docSnapShot) {
+        var todos = [];
+        docSnapShot.forEach(function (doc) {
+          todos.push(doc.data());
+        });
 
-              _this2.setState({
-                notes: doc.data()
-              }); //const data=doc.data();
-              // console.log(data);
-
-            });
-          });
-        } else {
-          console.log('user logged out');
-        }
+        _this2.setState({
+          todos: todos,
+          loaded: true
+        });
       });
     }
   }, {
-    key: "updateNoteText",
-    value: function updateNoteText(noteText) {
-      this.setState({
-        noteText: noteText.target.value
-      });
-    }
-  }, {
-    key: "deleteNote",
-    value: function deleteNote(index) {
-      var noteArr = this.state.notes;
-      noteArr.splice(index, 1);
-      this.setState({
-        notes: noteArr
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
+    key: "renderTodoList",
+    value: function renderTodoList() {
       var _this3 = this;
 
-      console.log(this.state.notes);
+      var ListItem = this.state.todos.map(function (todo, index) {
+        return __jsx("div", {
+          className: "card text-dark mb-3 mt-4 ml-3",
+          style: {
+            maxWidth: "50rem",
+            backgroundColor: "#e6ff99"
+          },
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 104,
+            columnNumber: 9
+          }
+        }, __jsx("div", {
+          className: "card-content",
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 105,
+            columnNumber: 9
+          }
+        }, __jsx("div", {
+          className: "card-body",
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 110,
+            columnNumber: 9
+          }
+        }, __jsx("p", {
+          className: "card-text ",
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 112,
+            columnNumber: 6
+          }
+        }, __jsx("h3", {
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 112,
+            columnNumber: 32
+          }
+        }, todo.task)), __jsx("button", {
+          value: todo.id,
+          className: "btn btn-sm btn-danger",
+          onClick: _this3.deleteTodo,
+          style: {
+            "float": "right"
+          },
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 118,
+            columnNumber: 7
+          }
+        }, "X"), __jsx("button", {
+          value: todo.id,
+          className: "btn btn-sm btn-info",
+          onClick: _this3.handleUpdate,
+          style: {
+            "float": "right"
+          },
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 119,
+            columnNumber: 7
+          }
+        }, "Update"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_8__["Modal"], {
+          isOpen: _this3.state.isUpdate,
+          toggle: _this3.toggleUpdate,
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 121,
+            columnNumber: 7
+          }
+        }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_8__["ModalHeader"], {
+          toggle: _this3.toggleUpdate,
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 122,
+            columnNumber: 17
+          }
+        }, "Update"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_8__["ModalBody"], {
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 123,
+            columnNumber: 17
+          }
+        }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_8__["Form"], {
+          onSubmit: _this3.updateTodo,
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 124,
+            columnNumber: 21
+          }
+        }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_8__["FormGroup"], {
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 127,
+            columnNumber: 29
+          }
+        }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_8__["Label"], {
+          htmlFor: "username",
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 128,
+            columnNumber: 33
+          }
+        }, "Task"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_8__["Input"], {
+          type: "text",
+          id: "username",
+          name: "username",
+          innerRef: function innerRef(input) {
+            return _this3.username = input;
+          },
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 129,
+            columnNumber: 33
+          }
+        })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_8__["Button"], {
+          type: "submit",
+          value: todo.id,
+          color: "primary",
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 134,
+            columnNumber: 29
+          }
+        }, "Update")))))));
+      });
       return __jsx("div", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 88,
+          lineNumber: 147,
           columnNumber: 7
         }
-      }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      }, ListItem);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      console.log(this.state);
+      console.log(this.state.notes);
+      return __jsx("div", {
+        className: "App",
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 90,
-          columnNumber: 11
+          lineNumber: 161,
+          columnNumber: 7
         }
-      }), __jsx(_main__WEBPACK_IMPORTED_MODULE_12__["default"], {
-        notes: this.state.notes.todo,
+      }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_10__["default"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93,
-          columnNumber: 10
+          lineNumber: 162,
+          columnNumber: 9
         }
-      }), __jsx("div", {
-        className: "container",
+      }), __jsx("form", {
+        onSubmit: this.addTodo,
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 96,
+          lineNumber: 164,
           columnNumber: 9
         }
       }, __jsx("div", {
-        className: "button ",
-        onClick: function onClick(noteText) {
-          return _this3.updateNoteText(noteText);
-        },
-        style: {
-          fontStyle: "oblique",
-          marginBottom: "10px",
-          marginTop: "80px",
-          color: "#E54E65"
-        },
+        className: "input-group",
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97,
-          columnNumber: 9
+          lineNumber: 165,
+          columnNumber: 11
         }
-      }, "Add note"), __jsx("input", {
-        style: {
-          backgroundColor: "#E2CEEE"
-        },
-        placeholder: "Enter Notes",
+      }, __jsx("input", {
         type: "text",
-        className: "input ",
-        ref: function ref(input) {
-          _this3.textInput = input;
+        onChange: this.handleChange,
+        name: "todo",
+        style: {
+          backgroundColor: "#E2CEEE",
+          marginTop: "20px",
+          marginLeft: "8px"
         },
-        value: this.state.noteText,
-        onChange: function onChange(noteText) {
-          return _this3.updateNoteText(noteText);
-        },
-        onKeyPress: this.handleKeyPress.bind(this),
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 98,
-          columnNumber: 9
+          lineNumber: 166,
+          columnNumber: 13
         }
-      })));
+      }), __jsx("button", {
+        className: "btn btn-primary",
+        type: "submit",
+        onClick: this.addTodo,
+        style: {
+          marginTop: "20px",
+          marginLeft: "8px"
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 167,
+          columnNumber: 13
+        }
+      }, "Add Todo"))), this.renderTodoList());
     }
   }]);
 
-  return Home;
+  return App;
 }(react__WEBPACK_IMPORTED_MODULE_7__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Home);
+/* harmony default export */ __webpack_exports__["default"] = (App);
 
 /***/ }),
 
@@ -63998,8 +64038,8 @@ var Home = /*#__PURE__*/function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home */ "./pages/Home.js");
-/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/layout */ "./components/layout.js");
+/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/layout */ "./components/layout.js");
+/* harmony import */ var _note__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./note */ "./pages/note.js");
 var _this = undefined,
     _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\index.js";
 
@@ -64009,18 +64049,18 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 var Index = function Index() {
-  return __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 7,
-      columnNumber: 3
-    }
-  }, __jsx(_Home__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 8,
+      columnNumber: 3
+    }
+  }, __jsx(_note__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
       columnNumber: 6
     }
   }));
@@ -64081,7 +64121,16 @@ var Card = /*#__PURE__*/function (_Component) {
     //    firestore.collection('todos').doc(id).delete();
     //     } 
     value: function render() {
+      console.log(this.props.id);
+      console.log(this.props.notes);
       return __jsx("div", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 17,
+          columnNumber: 1
+        }
+      }, __jsx("div", {
         className: "card text-dark mb-3 mt-4 ml-3",
         style: {
           maxWidth: "50rem",
@@ -64090,15 +64139,15 @@ var Card = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18,
-          columnNumber: 25
+          lineNumber: 19,
+          columnNumber: 41
         }
       }, __jsx("div", {
         className: "card-content",
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 19,
+          lineNumber: 20,
           columnNumber: 25
         }
       }, __jsx("div", {
@@ -64106,7 +64155,7 @@ var Card = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20,
+          lineNumber: 21,
           columnNumber: 33
         }
       }, __jsx("div", {
@@ -64114,7 +64163,7 @@ var Card = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 21,
+          lineNumber: 23,
           columnNumber: 33
         }
       }, __jsx("div", {
@@ -64122,7 +64171,7 @@ var Card = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 22,
+          lineNumber: 24,
           columnNumber: 33
         }
       }, __jsx("div", {
@@ -64130,7 +64179,7 @@ var Card = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 23,
+          lineNumber: 26,
           columnNumber: 25
         }
       }, __jsx("p", {
@@ -64138,22 +64187,37 @@ var Card = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25,
+          lineNumber: 28,
           columnNumber: 22
         }
       }, __jsx("h3", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25,
+          lineNumber: 28,
           columnNumber: 48
         }
-      }, this.props.notes))))), __jsx("div", {
+      }, this.props.notes.todo)), __jsx("p", {
+        className: "card-text ",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29,
+          columnNumber: 22
+        }
+      }, __jsx("h3", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29,
+          columnNumber: 48
+        }
+      }, " ", this.props.id))))), __jsx("div", {
         className: "level-right",
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30,
+          lineNumber: 34,
           columnNumber: 23
         }
       }, __jsx("div", {
@@ -64161,7 +64225,7 @@ var Card = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31,
+          lineNumber: 35,
           columnNumber: 23
         }
       }, __jsx("button", {
@@ -64173,10 +64237,10 @@ var Card = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32,
+          lineNumber: 36,
           columnNumber: 22
         }
-      }, "Delete"))))));
+      }, "Delete")))))));
     }
   }]);
 
@@ -64184,6 +64248,382 @@ var Card = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_5__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Card);
+/*{this.props.notes.forEach(todo => {
+        <li>{todo}</li>    
+    })}*/
+
+/***/ }),
+
+/***/ "./pages/note.js":
+/*!***********************!*\
+  !*** ./pages/note.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
+/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
+/* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/Navbar */ "./components/Navbar.js");
+
+
+
+
+
+
+
+var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\note.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
+
+function _createSuper(Derived) { return function () { var Super = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return Object(_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+
+var todoRef = _firebase_fire__WEBPACK_IMPORTED_MODULE_9__["firestore"].collection("todos");
+
+var App = /*#__PURE__*/function (_Component) {
+  Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(App, _Component);
+
+  var _super = _createSuper(App);
+
+  function App() {
+    var _this;
+
+    Object(_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, App);
+
+    _this = _super.call(this);
+
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "addTodo", function (e) {
+      e.preventDefault();
+      var ref = todoRef.doc();
+      ref.set({
+        task: _this.state.todo,
+        createdAt: new Date().getTime(),
+        done: false,
+        id: ref.id
+      }).then(function (docRef) {
+        console.log(docRef);
+      })["catch"](function (error) {
+        console.error("Error adding document: ", error);
+      });
+    });
+
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "updateTodo", function (e) {
+      _this.toggleUpdate();
+
+      e.preventDefault();
+      var a = e.target;
+      var b = _this.state.update;
+      var ref = todoRef.doc();
+      todoRef.doc(b).update({
+        task: _this.username.value
+      }).then(function (docRef) {
+        console.log(docRef);
+      })["catch"](function (error) {
+        console.error("Error updating document: ", error);
+      });
+    });
+
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "deleteTodo", function (e) {
+      todoRef.doc(e.target.value)["delete"]().then(function () {
+        console.log("Document successfully deleted!");
+      })["catch"](function (error) {
+        console.error("Error removing document: ", error);
+      });
+    });
+
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "handleUpdate", function (e) {
+      _this.toggleUpdate();
+
+      var t = e.target;
+
+      _this.setState({
+        update: t.value
+      });
+    });
+
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "handleChange", function (e) {
+      var t = e.target;
+
+      _this.setState(Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])({}, t.name, t.value));
+    });
+
+    _this.state = {
+      todos: [],
+      isUpdate: false,
+      update: ''
+    };
+    _this.toggleUpdate = _this.toggleUpdate.bind(Object(_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this));
+    return _this;
+  }
+
+  Object(_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(App, [{
+    key: "toggleUpdate",
+    value: function toggleUpdate() {
+      this.setState({
+        isUpdate: !this.state.isUpdate
+      });
+    }
+  }, {
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      var _this2 = this;
+
+      todoRef.orderBy('createdAt').onSnapshot(function (docSnapShot) {
+        var todos = [];
+        docSnapShot.forEach(function (doc) {
+          todos.push(doc.data());
+        });
+
+        _this2.setState({
+          todos: todos,
+          loaded: true
+        });
+      });
+    }
+  }, {
+    key: "renderTodoList",
+    value: function renderTodoList() {
+      var _this3 = this;
+
+      var ListItem = this.state.todos.map(function (todo, index) {
+        return __jsx("div", {
+          className: "card text-dark mb-3 mt-4 ml-3",
+          style: {
+            maxWidth: "50rem",
+            backgroundColor: "#e6ff99"
+          },
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 104,
+            columnNumber: 9
+          }
+        }, __jsx("div", {
+          className: "card-content",
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 105,
+            columnNumber: 9
+          }
+        }, __jsx("div", {
+          className: "card-body",
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 110,
+            columnNumber: 9
+          }
+        }, __jsx("p", {
+          className: "card-text ",
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 112,
+            columnNumber: 6
+          }
+        }, __jsx("h3", {
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 112,
+            columnNumber: 32
+          }
+        }, todo.task)), __jsx("button", {
+          value: todo.id,
+          className: "btn btn-sm btn-danger",
+          onClick: _this3.deleteTodo,
+          style: {
+            "float": "right"
+          },
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 118,
+            columnNumber: 7
+          }
+        }, "X"), __jsx("button", {
+          value: todo.id,
+          className: "btn btn-sm btn-info",
+          onClick: _this3.handleUpdate,
+          style: {
+            "float": "right"
+          },
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 119,
+            columnNumber: 7
+          }
+        }, "Update"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_8__["Modal"], {
+          isOpen: _this3.state.isUpdate,
+          toggle: _this3.toggleUpdate,
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 121,
+            columnNumber: 7
+          }
+        }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_8__["ModalHeader"], {
+          toggle: _this3.toggleUpdate,
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 122,
+            columnNumber: 17
+          }
+        }, "Update"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_8__["ModalBody"], {
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 123,
+            columnNumber: 17
+          }
+        }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_8__["Form"], {
+          onSubmit: _this3.updateTodo,
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 124,
+            columnNumber: 21
+          }
+        }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_8__["FormGroup"], {
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 127,
+            columnNumber: 29
+          }
+        }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_8__["Label"], {
+          htmlFor: "username",
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 128,
+            columnNumber: 33
+          }
+        }, "Task"), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_8__["Input"], {
+          type: "text",
+          id: "username",
+          name: "username",
+          innerRef: function innerRef(input) {
+            return _this3.username = input;
+          },
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 129,
+            columnNumber: 33
+          }
+        })), __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_8__["Button"], {
+          type: "submit",
+          value: todo.id,
+          color: "primary",
+          __self: _this3,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 134,
+            columnNumber: 29
+          }
+        }, "Update")))))));
+      });
+      return __jsx("div", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 147,
+          columnNumber: 7
+        }
+      }, ListItem);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      console.log(this.state);
+      console.log(this.state.notes);
+      return __jsx("div", {
+        className: "App",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 161,
+          columnNumber: 7
+        }
+      }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 162,
+          columnNumber: 9
+        }
+      }), __jsx("form", {
+        onSubmit: this.addTodo,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 164,
+          columnNumber: 9
+        }
+      }, __jsx("div", {
+        className: "input-group",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 165,
+          columnNumber: 11
+        }
+      }, __jsx("input", {
+        type: "text",
+        onChange: this.handleChange,
+        name: "todo",
+        style: {
+          backgroundColor: "#E2CEEE",
+          marginTop: "20px",
+          marginLeft: "8px"
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 166,
+          columnNumber: 13
+        }
+      }), __jsx("button", {
+        className: "btn btn-primary",
+        type: "submit",
+        onClick: this.addTodo,
+        style: {
+          marginTop: "20px",
+          marginLeft: "8px"
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 167,
+          columnNumber: 13
+        }
+      }, "Add Todo"))), this.renderTodoList());
+    }
+  }]);
+
+  return App;
+}(react__WEBPACK_IMPORTED_MODULE_7__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (App);
 
 /***/ }),
 

@@ -9,20 +9,24 @@ class Card extends Component{
            //     } 
     
            
-        render (){
-         
-           
+        
+         render(){
+           console.log(this.props.id);
+           console.log(this.props.notes);
                 return (
-
-                      
-                        <div className="card text-dark mb-3 mt-4 ml-3" style={{maxWidth: "50rem",backgroundColor:"#e6ff99"}}>
+<div>
+                        
+                                        <div className="card text-dark mb-3 mt-4 ml-3" style={{maxWidth: "50rem",backgroundColor:"#e6ff99"}}>
                         <div className="card-content">
                                 <div className="level">
+
                                 <div className="level-left">
                                 <div className="level-item">
+                                       
                         <div className="card-body">
                          
-                     <p className="card-text "><h3>{this.props.notes}</h3></p>
+                     <p className="card-text "><h3>{this.props.notes.todo}</h3></p>
+                     <p className="card-text "><h3> {this.props.id}</h3></p>
                
                         </div>
                       </div>
@@ -35,8 +39,16 @@ class Card extends Component{
                  </div>
                  </div>
                  </div>
+                  </div>
+                        
+                      
+                        
+                 
                 );
-        }
-}
+        }}
+
 export default Card;
 
+/*{this.props.notes.forEach(todo => {
+        <li>{todo}</li>    
+    })}*/
