@@ -3,7 +3,7 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
   Button, Modal, ModalHeader, ModalBody,
   Form, FormGroup, Input, Label,NavLink } from 'reactstrap';
 
-import {firestore,auth} from '../firebase/fire'
+import {firestore,auth} from '../firebase/Fire'
 import Header from '../components/Navbar';
 
 const todoRef = firestore.collection("todos");

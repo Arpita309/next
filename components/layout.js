@@ -1,6 +1,6 @@
 import Navbar from './Navbar';
 import Link from 'next/link';
-import Home from '../pages/Home';
+//import Home from '../pages/Home';
 import Head from 'next/head';
 
 const Layout=(props)=>(

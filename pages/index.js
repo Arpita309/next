@@ -1,6 +1,6 @@
 
-import Layout from "../components/layout";
-import App from "./note";
+import Layout from "../components/Layout";
+import App from "./Note";
 
 
 

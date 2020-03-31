@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
   Button, Modal, ModalHeader, ModalBody,
   Form, FormGroup, Input, Label,NavLink } from 'reactstrap';
-  import{auth,database, firestore}from '../firebase/fire';
-  import Card from '../pages/main'
+  import{auth,database, firestore}from '../firebase/Fire';
+ // import Card from '../pages/Main'
   
     
 
@@ -58,7 +58,7 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
         auth.signOut().then(() => {
             console.log('user signed out');
         });
-        <Card notes={""}/>
+       
         
      }
 

@@ -22,8 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
-/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
-/* harmony import */ var _pages_main__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../pages/main */ "./pages/main.js");
+/* harmony import */ var _firebase_Fire__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../firebase/Fire */ "./firebase/Fire.js");
 
 
 
@@ -41,8 +40,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
-
-
+ // import Card from '../pages/Main'
 
 var Header = /*#__PURE__*/function (_Component) {
   Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(Header, _Component);
@@ -85,7 +83,7 @@ var Header = /*#__PURE__*/function (_Component) {
     value: function handleLogin(event) {
       this.toggleModal();
       event.preventDefault();
-      _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["auth"].signInWithEmailAndPassword(this.username.value, this.password.value);
+      _firebase_Fire__WEBPACK_IMPORTED_MODULE_10__["auth"].signInWithEmailAndPassword(this.username.value, this.password.value);
     }
   }, {
     key: "handleSignUp",
@@ -93,7 +91,7 @@ var Header = /*#__PURE__*/function (_Component) {
       this.toggleSignup();
       event.preventDefault();
       console.log("username : " + this.username.value + "password : " + this.password.value);
-      _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["auth"].createUserWithEmailAndPassword(this.username.value, this.password.value).then(function (Credential) {
+      _firebase_Fire__WEBPACK_IMPORTED_MODULE_10__["auth"].createUserWithEmailAndPassword(this.username.value, this.password.value).then(function (Credential) {
         console.log(Credential);
       });
     }
@@ -101,18 +99,8 @@ var Header = /*#__PURE__*/function (_Component) {
     key: "handleLogOut",
     value: function handleLogOut(event) {
       event.preventDefault();
-      _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["auth"].signOut().then(function () {
+      _firebase_Fire__WEBPACK_IMPORTED_MODULE_10__["auth"].signOut().then(function () {
         console.log('user signed out');
-      });
-
-      __jsx(_pages_main__WEBPACK_IMPORTED_MODULE_11__["default"], {
-        notes: "",
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 61,
-          columnNumber: 9
-        }
       });
     }
   }, {
@@ -514,6 +502,77 @@ var Layout = function Layout(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
+
+/***/ }),
+
+/***/ "./firebase/Config.js":
+/*!****************************!*\
+  !*** ./firebase/Config.js ***!
+  \****************************/
+/*! exports provided: Config */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Config", function() { return Config; });
+var Config = {
+  apiKey: "AIzaSyASlSjH3fL2GezWLueFMy-nhQ9vuJmJFDo",
+  authDomain: "next-todo-fc90e.firebaseapp.com",
+  databaseURL: "https://next-todo-fc90e.firebaseio.com",
+  projectId: "next-todo-fc90e",
+  storageBucket: "next-todo-fc90e.appspot.com",
+  messagingSenderId: "969855624340",
+  appId: "1:969855624340:web:c9a785664c2c238a3c8081",
+  measurementId: "G-SKL8Y4KQHR"
+};
+
+/***/ }),
+
+/***/ "./firebase/Fire.js":
+/*!**************************!*\
+  !*** ./firebase/Fire.js ***!
+  \**************************/
+/*! exports provided: auth, fireauth, firestore, firebasestore, database */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "auth", function() { return auth; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fireauth", function() { return fireauth; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "firestore", function() { return firestore; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "firebasestore", function() { return firebasestore; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "database", function() { return database; });
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Config */ "./firebase/Config.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/auth */ "./node_modules/firebase/auth/dist/index.esm.js");
+/* harmony import */ var firebase_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! firebase/storage */ "./node_modules/firebase/storage/dist/index.esm.js");
+/* harmony import */ var firebase_database__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! firebase/database */ "./node_modules/firebase/database/dist/index.esm.js");
+/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! firebase/firestore */ "./node_modules/firebase/firestore/dist/index.esm.js");
+/* harmony import */ var firebase_messaging__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! firebase/messaging */ "./node_modules/firebase/messaging/dist/index.esm.js");
+/* harmony import */ var firebase_functions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! firebase/functions */ "./node_modules/firebase/functions/dist/index.esm.js");
+
+
+
+ // for storage
+
+ // for realtime database
+
+ // for cloud firestore
+
+ // for cloud messaging
+
+
+
+if (!firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.apps.length) {
+  firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.initializeApp(_Config__WEBPACK_IMPORTED_MODULE_0__["Config"]);
+}
+
+var auth = firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.auth();
+var fireauth = firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.auth;
+var firestore = firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.firestore();
+var firebasestore = firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.firestore;
+var database = firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.database();
 
 /***/ }),
 
@@ -63467,9 +63526,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Note__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Note */ "./pages/Note.js");
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Navbar */ "./components/Navbar.js");
-/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
+/* harmony import */ var _firebase_Fire__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../firebase/Fire */ "./firebase/Fire.js");
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
-/* harmony import */ var _main__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./main */ "./pages/main.js");
 
 
 
@@ -63488,8 +63546,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
-
-
+ //import Card from './Main';
 
 var Home = /*#__PURE__*/function (_Component) {
   Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(Home, _Component);
@@ -63508,7 +63565,7 @@ var Home = /*#__PURE__*/function (_Component) {
         // let noteArr = this.state.notes;
         // noteArr.push(this.state.noteText);
         //  this.setState({ noteText: ''});
-        _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["firestore"].collection('todos').add({
+        _firebase_Fire__WEBPACK_IMPORTED_MODULE_10__["firestore"].collection('todos').add({
           todo: _this.state.noteText
         });
 
@@ -63533,10 +63590,10 @@ var Home = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["auth"].onAuthStateChanged(function (user) {
+      _firebase_Fire__WEBPACK_IMPORTED_MODULE_10__["auth"].onAuthStateChanged(function (user) {
         if (user) {
           console.log('user logged in: ', user);
-          _firebase_fire__WEBPACK_IMPORTED_MODULE_10__["firestore"].collection('todos').get().then(function (querySnapshot) {
+          _firebase_Fire__WEBPACK_IMPORTED_MODULE_10__["firestore"].collection('todos').get().then(function (querySnapshot) {
             querySnapshot.docs.forEach(function (doc) {
               _this2.setState({
                 notes: doc.data(),
@@ -63588,7 +63645,7 @@ var Home = /*#__PURE__*/function (_Component) {
           lineNumber: 89,
           columnNumber: 11
         }
-      }), __jsx(_main__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      }), __jsx(Card, {
         notes: this.state.notes,
         id: this.state.id,
         __self: this,
@@ -63673,7 +63730,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
-/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
+/* harmony import */ var _firebase_Fire__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../firebase/Fire */ "./firebase/Fire.js");
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/Navbar */ "./components/Navbar.js");
 
 
@@ -63693,7 +63750,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
-var todoRef = _firebase_fire__WEBPACK_IMPORTED_MODULE_9__["firestore"].collection("todos");
+var todoRef = _firebase_Fire__WEBPACK_IMPORTED_MODULE_9__["firestore"].collection("todos");
 
 var App = /*#__PURE__*/function (_Component) {
   Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(App, _Component);
@@ -64067,190 +64124,6 @@ var Index = function Index() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);
-
-/***/ }),
-
-/***/ "./pages/main.js":
-/*!***********************!*\
-  !*** ./pages/main.js ***!
-  \***********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
-/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
-
-
-
-
-
-var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\main.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
-
-function _createSuper(Derived) { return function () { var Super = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return Object(_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-
-
-
-
-var Card = /*#__PURE__*/function (_Component) {
-  Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(Card, _Component);
-
-  var _super = _createSuper(Card);
-
-  function Card() {
-    Object(_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Card);
-
-    return _super.apply(this, arguments);
-  }
-
-  Object(_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Card, [{
-    key: "render",
-    // deleteTodo (id) {
-    //    firestore.collection('todos').doc(id).delete();
-    //     } 
-    value: function render() {
-      console.log(this.props.id);
-      console.log(this.props.notes);
-      return __jsx("div", {
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 17,
-          columnNumber: 1
-        }
-      }, __jsx("div", {
-        className: "card text-dark mb-3 mt-4 ml-3",
-        style: {
-          maxWidth: "50rem",
-          backgroundColor: "#e6ff99"
-        },
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 19,
-          columnNumber: 41
-        }
-      }, __jsx("div", {
-        className: "card-content",
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 20,
-          columnNumber: 25
-        }
-      }, __jsx("div", {
-        className: "level",
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 21,
-          columnNumber: 33
-        }
-      }, __jsx("div", {
-        className: "level-left",
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 23,
-          columnNumber: 33
-        }
-      }, __jsx("div", {
-        className: "level-item",
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 24,
-          columnNumber: 33
-        }
-      }, __jsx("div", {
-        className: "card-body",
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 26,
-          columnNumber: 25
-        }
-      }, __jsx("p", {
-        className: "card-text ",
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 28,
-          columnNumber: 22
-        }
-      }, __jsx("h3", {
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 28,
-          columnNumber: 48
-        }
-      }, this.props.notes.todo)), __jsx("p", {
-        className: "card-text ",
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 29,
-          columnNumber: 22
-        }
-      }, __jsx("h3", {
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 29,
-          columnNumber: 48
-        }
-      }, " ", this.props.id))))), __jsx("div", {
-        className: "level-right",
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 34,
-          columnNumber: 23
-        }
-      }, __jsx("div", {
-        className: "level-item",
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 35,
-          columnNumber: 23
-        }
-      }, __jsx("button", {
-        type: "button",
-        className: "btn btn-danger",
-        style: {
-          "float": "right"
-        },
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 36,
-          columnNumber: 22
-        }
-      }, "Delete")))))));
-    }
-  }]);
-
-  return Card;
-}(react__WEBPACK_IMPORTED_MODULE_5__["Component"]);
-
-/* harmony default export */ __webpack_exports__["default"] = (Card);
-/*{this.props.notes.forEach(todo => {
-        <li>{todo}</li>    
-    })}*/
 
 /***/ }),
 

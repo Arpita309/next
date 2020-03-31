@@ -110,16 +110,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! reactstrap */ "reactstrap");
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(reactstrap__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
-/* harmony import */ var _pages_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/main */ "./pages/main.js");
+/* harmony import */ var _firebase_Fire__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../firebase/Fire */ "./firebase/Fire.js");
 var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\components\\Navbar.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 
 
 
-
-
+ // import Card from '../pages/Main'
 
 class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
   constructor(props) {
@@ -149,32 +147,22 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
   handleLogin(event) {
     this.toggleModal();
     event.preventDefault();
-    _firebase_fire__WEBPACK_IMPORTED_MODULE_4__["auth"].signInWithEmailAndPassword(this.username.value, this.password.value);
+    _firebase_Fire__WEBPACK_IMPORTED_MODULE_4__["auth"].signInWithEmailAndPassword(this.username.value, this.password.value);
   }
 
   handleSignUp(event) {
     this.toggleSignup();
     event.preventDefault();
     console.log("username : " + this.username.value + "password : " + this.password.value);
-    _firebase_fire__WEBPACK_IMPORTED_MODULE_4__["auth"].createUserWithEmailAndPassword(this.username.value, this.password.value).then(Credential => {
+    _firebase_Fire__WEBPACK_IMPORTED_MODULE_4__["auth"].createUserWithEmailAndPassword(this.username.value, this.password.value).then(Credential => {
       console.log(Credential);
     });
   }
 
   handleLogOut(event) {
     event.preventDefault();
-    _firebase_fire__WEBPACK_IMPORTED_MODULE_4__["auth"].signOut().then(() => {
+    _firebase_Fire__WEBPACK_IMPORTED_MODULE_4__["auth"].signOut().then(() => {
       console.log('user signed out');
-    });
-
-    __jsx(_pages_main__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      notes: "",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 61,
-        columnNumber: 9
-      }
     });
   }
 
@@ -557,6 +545,83 @@ const Layout = props => __jsx("div", {
 }, props.children));
 
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
+
+/***/ }),
+
+/***/ "./firebase/Config.js":
+/*!****************************!*\
+  !*** ./firebase/Config.js ***!
+  \****************************/
+/*! exports provided: Config */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Config", function() { return Config; });
+const Config = {
+  apiKey: "AIzaSyASlSjH3fL2GezWLueFMy-nhQ9vuJmJFDo",
+  authDomain: "next-todo-fc90e.firebaseapp.com",
+  databaseURL: "https://next-todo-fc90e.firebaseio.com",
+  projectId: "next-todo-fc90e",
+  storageBucket: "next-todo-fc90e.appspot.com",
+  messagingSenderId: "969855624340",
+  appId: "1:969855624340:web:c9a785664c2c238a3c8081",
+  measurementId: "G-SKL8Y4KQHR"
+};
+
+/***/ }),
+
+/***/ "./firebase/Fire.js":
+/*!**************************!*\
+  !*** ./firebase/Fire.js ***!
+  \**************************/
+/*! exports provided: auth, fireauth, firestore, firebasestore, database */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "auth", function() { return auth; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fireauth", function() { return fireauth; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "firestore", function() { return firestore; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "firebasestore", function() { return firebasestore; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "database", function() { return database; });
+/* harmony import */ var _Config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Config */ "./firebase/Config.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/app */ "firebase/app");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/auth */ "firebase/auth");
+/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(firebase_auth__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var firebase_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! firebase/storage */ "firebase/storage");
+/* harmony import */ var firebase_storage__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(firebase_storage__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var firebase_database__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! firebase/database */ "firebase/database");
+/* harmony import */ var firebase_database__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(firebase_database__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! firebase/firestore */ "firebase/firestore");
+/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(firebase_firestore__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var firebase_messaging__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! firebase/messaging */ "firebase/messaging");
+/* harmony import */ var firebase_messaging__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(firebase_messaging__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var firebase_functions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! firebase/functions */ "firebase/functions");
+/* harmony import */ var firebase_functions__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(firebase_functions__WEBPACK_IMPORTED_MODULE_7__);
+
+
+
+ // for storage
+
+ // for realtime database
+
+ // for cloud firestore
+
+ // for cloud messaging
+
+
+
+if (!firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.apps.length) {
+  firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.initializeApp(_Config__WEBPACK_IMPORTED_MODULE_0__["Config"]);
+}
+
+const auth = firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.auth();
+const fireauth = firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.auth;
+const firestore = firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.firestore();
+const firebasestore = firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.firestore;
+const database = firebase_app__WEBPACK_IMPORTED_MODULE_1___default.a.database();
 
 /***/ }),
 
@@ -2581,10 +2646,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Note__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Note */ "./pages/Note.js");
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Navbar */ "./components/Navbar.js");
-/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
+/* harmony import */ var _firebase_Fire__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../firebase/Fire */ "./firebase/Fire.js");
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! reactstrap */ "reactstrap");
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(reactstrap__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./main */ "./pages/main.js");
 var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\Home.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -2594,8 +2658,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-
-
+ //import Card from './Main';
 
 class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   constructor(props) {
@@ -2606,7 +2669,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         // let noteArr = this.state.notes;
         // noteArr.push(this.state.noteText);
         //  this.setState({ noteText: ''});
-        _firebase_fire__WEBPACK_IMPORTED_MODULE_3__["firestore"].collection('todos').add({
+        _firebase_Fire__WEBPACK_IMPORTED_MODULE_3__["firestore"].collection('todos').add({
           todo: this.state.noteText
         });
         this.setState({
@@ -2625,10 +2688,10 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   componentDidMount() {
-    _firebase_fire__WEBPACK_IMPORTED_MODULE_3__["auth"].onAuthStateChanged(user => {
+    _firebase_Fire__WEBPACK_IMPORTED_MODULE_3__["auth"].onAuthStateChanged(user => {
       if (user) {
         console.log('user logged in: ', user);
-        _firebase_fire__WEBPACK_IMPORTED_MODULE_3__["firestore"].collection('todos').get().then(querySnapshot => {
+        _firebase_Fire__WEBPACK_IMPORTED_MODULE_3__["firestore"].collection('todos').get().then(querySnapshot => {
           querySnapshot.docs.forEach(doc => {
             this.setState({
               notes: doc.data(),
@@ -2674,7 +2737,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         lineNumber: 89,
         columnNumber: 11
       }
-    }), __jsx(_main__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }), __jsx(Card, {
       notes: this.state.notes,
       id: this.state.id,
       __self: this,
@@ -2747,7 +2810,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactstrap */ "reactstrap");
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(reactstrap__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
+/* harmony import */ var _firebase_Fire__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../firebase/Fire */ "./firebase/Fire.js");
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Navbar */ "./components/Navbar.js");
 var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\Note.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -2758,7 +2821,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-const todoRef = _firebase_fire__WEBPACK_IMPORTED_MODULE_2__["firestore"].collection("todos");
+const todoRef = _firebase_Fire__WEBPACK_IMPORTED_MODULE_2__["firestore"].collection("todos");
 
 class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   constructor() {
@@ -3103,162 +3166,6 @@ const Index = () => __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_1__["defau
 }));
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);
-
-/***/ }),
-
-/***/ "./pages/main.js":
-/*!***********************!*\
-  !*** ./pages/main.js ***!
-  \***********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactstrap */ "reactstrap");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(reactstrap__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _firebase_fire__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../firebase/fire */ "./firebase/fire.js");
-var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\main.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-
-
-class Card extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
-  // deleteTodo (id) {
-  //    firestore.collection('todos').doc(id).delete();
-  //     } 
-  render() {
-    console.log(this.props.id);
-    console.log(this.props.notes);
-    return __jsx("div", {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 17,
-        columnNumber: 1
-      }
-    }, __jsx("div", {
-      className: "card text-dark mb-3 mt-4 ml-3",
-      style: {
-        maxWidth: "50rem",
-        backgroundColor: "#e6ff99"
-      },
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 19,
-        columnNumber: 41
-      }
-    }, __jsx("div", {
-      className: "card-content",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 20,
-        columnNumber: 25
-      }
-    }, __jsx("div", {
-      className: "level",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21,
-        columnNumber: 33
-      }
-    }, __jsx("div", {
-      className: "level-left",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 23,
-        columnNumber: 33
-      }
-    }, __jsx("div", {
-      className: "level-item",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 24,
-        columnNumber: 33
-      }
-    }, __jsx("div", {
-      className: "card-body",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 26,
-        columnNumber: 25
-      }
-    }, __jsx("p", {
-      className: "card-text ",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 28,
-        columnNumber: 22
-      }
-    }, __jsx("h3", {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 28,
-        columnNumber: 48
-      }
-    }, this.props.notes.todo)), __jsx("p", {
-      className: "card-text ",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 29,
-        columnNumber: 22
-      }
-    }, __jsx("h3", {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 29,
-        columnNumber: 48
-      }
-    }, " ", this.props.id))))), __jsx("div", {
-      className: "level-right",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 34,
-        columnNumber: 23
-      }
-    }, __jsx("div", {
-      className: "level-item",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 35,
-        columnNumber: 23
-      }
-    }, __jsx("button", {
-      type: "button",
-      className: "btn btn-danger",
-      style: {
-        float: "right"
-      },
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 36,
-        columnNumber: 22
-      }
-    }, "Delete")))))));
-  }
-
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Card);
-/*{this.props.notes.forEach(todo => {
-        <li>{todo}</li>    
-    })}*/
 
 /***/ }),
 
