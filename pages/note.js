@@ -4,7 +4,7 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
   Form, FormGroup, Input, Label,NavLink } from 'reactstrap';
 
 import {firestore,auth} from '../firebase/Fire'
-import Header from '../components/Navbar';
+//import Header from '../components/Navbar';
 
 const todoRef = firestore.collection("todos");
 
@@ -159,7 +159,16 @@ class App extends Component {
     return (
       
       <div className="App">
-        <Header/>
+         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+                    <div className="container-fluid">
+                        
+                        <NavbarBrand className="mr-auto"  style={{fontSize:"30px" ,fontFamily:"cursive",color:"#D6E149"}}>Todo App</NavbarBrand>
+                        
+                            
+                            
+                            
+                    </div>
+                </nav>
         
         <form onSubmit={this.addTodo}>
           <div className="input-group">
