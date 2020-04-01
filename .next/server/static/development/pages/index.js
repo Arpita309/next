@@ -2568,7 +2568,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactstrap */ "reactstrap");
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(reactstrap__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _firebase_Fire__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../firebase/Fire */ "./firebase/Fire.js");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/head */ "next/head");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _firebase_Fire__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../firebase/Fire */ "./firebase/Fire.js");
 var _jsxFileName = "C:\\Users\\at\\Desktop\\todo-next\\pages\\Note.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -2576,9 +2578,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
  //import Header from '../components/Navbar';
 
-const todoRef = _firebase_Fire__WEBPACK_IMPORTED_MODULE_2__["firestore"].collection("todos");
+const todoRef = _firebase_Fire__WEBPACK_IMPORTED_MODULE_3__["firestore"].collection("todos");
 
 class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   constructor() {
@@ -2826,12 +2829,37 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         lineNumber: 161,
         columnNumber: 7
       }
-    }, __jsx("nav", {
-      className: "navbar navbar-expand-lg navbar-dark bg-primary",
+    }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_2___default.a, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 162,
+        columnNumber: 9
+      }
+    }, __jsx("link", {
+      rel: "stylesheet",
+      href: "https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 163,
+        columnNumber: 7
+      }
+    }), __jsx("link", {
+      rel: "stylesheet",
+      href: "https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 164,
+        columnNumber: 7
+      }
+    })), __jsx("nav", {
+      className: "navbar navbar-expand-lg navbar-dark bg-primary",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 166,
         columnNumber: 10
       }
     }, __jsx("div", {
@@ -2839,7 +2867,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 163,
+        lineNumber: 167,
         columnNumber: 21
       }
     }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_1__["NavbarBrand"], {
@@ -2852,7 +2880,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 165,
+        lineNumber: 169,
         columnNumber: 25
       }
     }, "Todo App"))), __jsx("form", {
@@ -2860,7 +2888,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 173,
+        lineNumber: 177,
         columnNumber: 9
       }
     }, __jsx("div", {
@@ -2868,7 +2896,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 174,
+        lineNumber: 178,
         columnNumber: 11
       }
     }, __jsx("input", {
@@ -2883,7 +2911,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 175,
+        lineNumber: 179,
         columnNumber: 13
       }
     }), __jsx("button", {
@@ -2897,7 +2925,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 176,
+        lineNumber: 180,
         columnNumber: 13
       }
     }, "Add Todo"))), this.renderTodoList());

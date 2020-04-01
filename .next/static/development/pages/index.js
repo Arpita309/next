@@ -63453,7 +63453,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/index.js");
-/* harmony import */ var _firebase_Fire__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../firebase/Fire */ "./firebase/Fire.js");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! next/head */ "./node_modules/next/dist/next-server/lib/head.js");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _firebase_Fire__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../firebase/Fire */ "./firebase/Fire.js");
 
 
 
@@ -63470,9 +63472,10 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
+
  //import Header from '../components/Navbar';
 
-var todoRef = _firebase_Fire__WEBPACK_IMPORTED_MODULE_9__["firestore"].collection("todos");
+var todoRef = _firebase_Fire__WEBPACK_IMPORTED_MODULE_10__["firestore"].collection("todos");
 
 var App = /*#__PURE__*/function (_Component) {
   Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(App, _Component);
@@ -63743,12 +63746,37 @@ var App = /*#__PURE__*/function (_Component) {
           lineNumber: 161,
           columnNumber: 7
         }
-      }, __jsx("nav", {
-        className: "navbar navbar-expand-lg navbar-dark bg-primary",
+      }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_9___default.a, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 162,
+          columnNumber: 9
+        }
+      }, __jsx("link", {
+        rel: "stylesheet",
+        href: "https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 163,
+          columnNumber: 7
+        }
+      }), __jsx("link", {
+        rel: "stylesheet",
+        href: "https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 164,
+          columnNumber: 7
+        }
+      })), __jsx("nav", {
+        className: "navbar navbar-expand-lg navbar-dark bg-primary",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 166,
           columnNumber: 10
         }
       }, __jsx("div", {
@@ -63756,7 +63784,7 @@ var App = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 163,
+          lineNumber: 167,
           columnNumber: 21
         }
       }, __jsx(reactstrap__WEBPACK_IMPORTED_MODULE_8__["NavbarBrand"], {
@@ -63769,7 +63797,7 @@ var App = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 165,
+          lineNumber: 169,
           columnNumber: 25
         }
       }, "Todo App"))), __jsx("form", {
@@ -63777,7 +63805,7 @@ var App = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 173,
+          lineNumber: 177,
           columnNumber: 9
         }
       }, __jsx("div", {
@@ -63785,7 +63813,7 @@ var App = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 174,
+          lineNumber: 178,
           columnNumber: 11
         }
       }, __jsx("input", {
@@ -63800,7 +63828,7 @@ var App = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 175,
+          lineNumber: 179,
           columnNumber: 13
         }
       }), __jsx("button", {
@@ -63814,7 +63842,7 @@ var App = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 176,
+          lineNumber: 180,
           columnNumber: 13
         }
       }, "Add Todo"))), this.renderTodoList());

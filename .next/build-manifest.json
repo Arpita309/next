@@ -1,36 +1,42 @@
 {
-  "devFiles": [
-    "static/development/dll/dll_dc8ac110ce5d8530b237.js",
-    "static/development/dll/dll_dc8ac110ce5d8530b237.js.map"
-  ],
+  "devFiles": [],
   "lowPriorityFiles": [
-    "static/development/_buildManifest.js",
-    "static/development/_ssgManifest.js"
+    "static/SQoEK9jvU7P_crSsIgLYP/_buildManifest.js",
+    "static/SQoEK9jvU7P_crSsIgLYP/_ssgManifest.js"
   ],
   "pages": {
-    "/": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+    "/Index": [
+      "static/runtime/webpack-b65cab0b00afd201cbda.js",
+      "static/chunks/framework.4503cc20512dbab0b6d3.js",
+      "static/chunks/484bcb1e.a5a46841cd3473a37316.js",
+      "static/chunks/8673774c.a0195901497c8f1bfd07.js",
+      "static/chunks/ff239f9d.eaf1bc2df1bae463b83e.js",
+      "static/chunks/5328a0ead913fea4ca9ee53469be93cc9c56ebec.92878cf99693685a7c2c.js",
+      "static/chunks/b2757916872e60422272da1889058bb03e0dedc1.fd4a7c24bfbacb85a579.js",
+      "static/runtime/main-4cac7ea82e8c2b75a0de.js"
+    ],
+    "/Note": [
+      "static/runtime/webpack-b65cab0b00afd201cbda.js",
+      "static/chunks/framework.4503cc20512dbab0b6d3.js",
+      "static/chunks/484bcb1e.a5a46841cd3473a37316.js",
+      "static/chunks/8673774c.a0195901497c8f1bfd07.js",
+      "static/chunks/ff239f9d.eaf1bc2df1bae463b83e.js",
+      "static/chunks/b2757916872e60422272da1889058bb03e0dedc1.fd4a7c24bfbacb85a579.js",
+      "static/runtime/main-4cac7ea82e8c2b75a0de.js"
     ],
     "/_app": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+      "static/runtime/webpack-b65cab0b00afd201cbda.js",
+      "static/chunks/framework.4503cc20512dbab0b6d3.js",
+      "static/chunks/5328a0ead913fea4ca9ee53469be93cc9c56ebec.92878cf99693685a7c2c.js",
+      "static/runtime/main-4cac7ea82e8c2b75a0de.js"
     ],
     "/_error": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+      "static/runtime/webpack-b65cab0b00afd201cbda.js",
+      "static/chunks/framework.4503cc20512dbab0b6d3.js",
+      "static/runtime/main-4cac7ea82e8c2b75a0de.js"
     ],
     "/_polyfills": [
-      "static/runtime/polyfills.js",
-      "static/runtime/polyfills.js.map"
-    ],
-    "/index": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/next/dist/pages/_error": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
+      "static/runtime/polyfills-bbde86c098966bdf3010.js"
     ]
   }
 }

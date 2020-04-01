@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
   Button, Modal, ModalHeader, ModalBody,
   Form, FormGroup, Input, Label,NavLink } from 'reactstrap';
-
+import Head from 'next/head';
 import {firestore,auth} from '../firebase/Fire'
 //import Header from '../components/Navbar';
 
@@ -159,6 +159,10 @@ class App extends Component {
     return (
       
       <div className="App">
+        <Head>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css"></link>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css"></link>
+      </Head>
          <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                     <div className="container-fluid">
                         
